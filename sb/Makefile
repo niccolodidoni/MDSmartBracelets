@@ -1,0 +1,3 @@
+COMPONENT=smartBraceletAppC
+include $(MAKERULES)
+
