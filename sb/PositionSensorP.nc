@@ -18,13 +18,13 @@ generic module PositionSensorP() {
 
 	//***************** Timer0 interface ********************//
 	event void Timer0.fired() {
-		pos_t position; 
-		position.x = call Random.rand16(); 
+		pos_t position;
+		position.x = call Random.rand16();
 		position.y = call Random.rand16();
 
-		// dbg("position_sensor", "POSITION READ: {x=%d, y=%d}\n", position.x, position.y);
-		printf("POSITION READ: {x=%d, y=%d}\n", position.x, position.y); 
-		printfflush(); 
+		dbg("position_sensor", "POSITION READ: {x=%d, y=%d}\n", position.x, position.y);
+		printf("POSITION READ: {x=%d, y=%d}\n", position.x, position.y);
+		printfflush();
 		signal Read.readDone( SUCCESS, position );
 	}
 }

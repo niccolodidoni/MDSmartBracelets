@@ -16,7 +16,7 @@ implementation {
   components new TimerMilliC() as Timer10MilliC;
   components new TimerMilliC() as Timer60MilliC;
   components ActiveMessageC;
-  
+
   // serial print
   components SerialPrintfC;
   components SerialStartC;

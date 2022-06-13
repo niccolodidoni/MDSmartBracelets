@@ -47,8 +47,8 @@ module smartBraceletC {
   //***************** Boot interface ********************//
   event void Boot.booted() {
 	dbg("boot","Application booted.\n");
-	printf("Application booted.\n"); 
-	printfflush(); 
+	printf("Application booted.\n");
+	printfflush();
 	call KineticRead.read();
     call PositionRead.read();
   }
@@ -86,21 +86,21 @@ module smartBraceletC {
 
   //***************************** Receive interface *****************//
   event message_t* Receive.receive(message_t* buf,void* payload, uint8_t len) {
-	return NULL; 
+	return NULL;
 
   }
 
     //************************* Read interface **********************//
     event void KineticRead.readDone(error_t result, kinematic_status_t data) {
         dbg("app_kin_sensor", "KINEMATIC STATUS: %d", data);
-        printf("KINEMATIC STATUS: %d\n", data); 
-        printfflush(); 
+        printf("KINEMATIC STATUS: %d\n", data);
+        printfflush();
     }
 
     event void PositionRead.readDone(error_t result, pos_t data) {
         dbg("app_kin_sensor", "POSITION: (x=%u, y=%u)\n", data.x, data.y);
-        printf("POSITION: (x=%u, y=%u)\n", data.x, data.y); 
-        printfflush(); 
+        printf("POSITION: (x=%u, y=%u)\n", data.x, data.y);
+        printfflush();
     }
 
 }

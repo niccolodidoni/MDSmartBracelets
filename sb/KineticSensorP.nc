@@ -30,11 +30,11 @@ generic module KineticSensorP() {
         uint16_t num;
 
         num = call Random.rand16();
-        // dbg("kinetic_sensor", "RANDOM VALUE READY: %d", num);
-        printf("RANDOM VALUE READY: %u\n", num); 
-        printfflush(); 
+        dbg("kinetic_sensor", "RANDOM VALUE READY: %d", num);
+        printf("RANDOM VALUE READY: %u\n", num);
+        printfflush();
 
-        status = FALLING; 
+        status = FALLING;
         if ( 0 <= num && num <= STANDING_UPPER ) {
             status = STANDING;
         } else if ( STANDING_UPPER < num && num <= WALKING_UPPER ) {
@@ -43,9 +43,9 @@ generic module KineticSensorP() {
             status = RUNNING;
         }
 
-        // dbg("kinetic_sensor", "VALUE READ: %d", status);
-        printf("VALUE READ: %d\n", status); 
-        printfflush(); 
+        dbg("kinetic_sensor", "VALUE READ: %d", status);
+        printf("VALUE READ: %d\n", status);
+        printfflush();
         signal Read.readDone( SUCCESS, status );
 	}
 }
