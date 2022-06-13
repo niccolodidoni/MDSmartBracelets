@@ -38,6 +38,16 @@ print "Activate debug message on channel init"
 t.addChannel("init",out);
 print "Activate debug message on channel boot"
 t.addChannel("boot",out);
+print "Activate debug message on channel kinetic_sensor"
+t.addChannel("kinetic_sensor",out);
+print "Activate debug message on channel position_sensor"
+t.addChannel("position_sensor",out);
+print "Activate debug message on channel app_kin_sensor"
+t.addChannel("app_kin_sensor",out);
+print "Activate debug message on channel app_pos_sensor"
+t.addChannel("app_pos_sensor",out);
+
+
 print "Activate debug message on channel radio"
 t.addChannel("radio",out);
 print "Activate debug message on channel radio_send"
@@ -106,6 +116,5 @@ print "Start simulation with TOSSIM! \n\n\n";
 
 for i in range(0,1200):
 	t.runNextEvent()
-	
-print "\n\n\nSimulation finished!";
 
+print "\n\n\nSimulation finished!";

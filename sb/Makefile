@@ -1,3 +1,4 @@
 COMPONENT=smartBraceletAppC
-include $(MAKERULES)
+CFLAGS += -I$(TOSDIR)/lib/printf
 
+include $(MAKERULES)

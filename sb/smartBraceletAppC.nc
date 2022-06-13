@@ -1,3 +1,6 @@
+#define NEW_PRINTF_SEMANTICS 
+
+#include "printf.h"
 #include "smartBracelet.h"
 
 configuration smartBraceletAppC {}
@@ -7,13 +10,24 @@ implementation {
 
 /****** COMPONENTS *****/
   components MainC, smartBraceletC as App;
-  components new AMSender(AM_MY_MSG);
-  components new AMReceiver(AM_MY_MSG);
-  components new TimerMilliC();
-  components new Timer10MilliC();
-  components new Timer60MilliC();
+  components new AMSenderC(AM_MY_MSG);
+  components new AMReceiverC(AM_MY_MSG);
+  components new TimerMilliC() as TimerMilliC;
+  components new TimerMilliC() as Timer10MilliC;
+  components new TimerMilliC() as Timer60MilliC;
   components ActiveMessageC;
-  components new FakeSensorC();
+  
+  // serial print
+  components SerialPrintfC;
+  components SerialStartC;
+
+  // Sensor used to read the position of the bracelet.
+  // INTERFACES: Read
+  components new PositionSensorC();
+
+  // Sensor used to read the kinetic status of the bracelet.
+  // INTERFACES: Read
+  components new KineticSensorC();
 
 /****** INTERFACES *****/
   //Boot interface
@@ -21,7 +35,7 @@ implementation {
 
   /****** Wire the other interfaces down here *****/
   //Send and Receive interfaces
-  App.Receive -> AmReceiverC;
+  App.Receive -> AMReceiverC;
   App.AMSend -> AMSenderC;
 
   //Radio Control
@@ -33,11 +47,10 @@ implementation {
 
   //Timer interface
   App.MilliTimer -> TimerMilliC;
-  App.MilliTimer10 -> Timer10MilliC;
-  App.MilliTimer60 -> Timer60MilliC;
+  App.Milli10Timer -> Timer10MilliC;
+  App.Milli60Timer -> Timer60MilliC;
 
-  //Fake Sensor read
-  App.Read -> FakeSensorC;
-
+  // Sensor read
+  App.PositionRead -> PositionSensorC;
+  App.KineticRead -> KineticSensorC;
 }
-
