@@ -46,10 +46,11 @@ print "Activate debug message on channel app_kin_sensor"
 t.addChannel("app_kin_sensor",out);
 print "Activate debug message on channel app_pos_sensor"
 t.addChannel("app_pos_sensor",out);
-
-
 print "Activate debug message on channel radio"
 t.addChannel("radio",out);
+print "Activate debug message on channel control"
+t.addChannel("control",out);
+
 print "Activate debug message on channel radio_send"
 t.addChannel("radio_send",out);
 print "Activate debug message on channel radio_ack"

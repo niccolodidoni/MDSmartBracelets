@@ -9,6 +9,7 @@
 //	FALLING
 // } kinematic_status_t;
 
+// Kinematic status
 #define STANDING 0
 #define WALKING 1
 #define RUNNING 2
@@ -20,6 +21,11 @@ typedef struct pos {
 	nx_uint16_t x;
 	nx_uint16_t y;
 } pos_t;
+
+// Bracelet role
+#define PARENT 0
+#define CHILD 1
+
 
 //payload of the msg
 typedef nx_struct my_msg {
@@ -34,6 +40,7 @@ typedef nx_struct my_msg {
 //msg type
 #define PAIRING 1
 #define INFO 2
+#define PAIREND 3
 
 //preloaded keys
 static const char KEYS[][21] = {

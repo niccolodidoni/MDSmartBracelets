@@ -1,6 +1,3 @@
-#define NEW_PRINTF_SEMANTICS 
-
-#include "printf.h"
 #include "smartBracelet.h"
 
 configuration smartBraceletAppC {}
@@ -16,10 +13,6 @@ implementation {
   components new TimerMilliC() as Timer10MilliC;
   components new TimerMilliC() as Timer60MilliC;
   components ActiveMessageC;
-
-  // serial print
-  components SerialPrintfC;
-  components SerialStartC;
 
   // Sensor used to read the position of the bracelet.
   // INTERFACES: Read
@@ -43,7 +36,9 @@ implementation {
 
   //Interfaces to access package fields
   App.Packet -> AMSenderC;
-  App.Acks -> ActiveMessageC;
+  // App.AMPacket -> ActiveMessageC;
+  App.ReceivePacket -> AMReceiverC; 
+  App.SendPacket -> AMSenderC; 
 
   //Timer interface
   App.MilliTimer -> TimerMilliC;

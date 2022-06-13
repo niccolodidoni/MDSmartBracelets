@@ -1,5 +1,4 @@
 #include "smartBracelet.h"
-#include "printf.h"
 
 generic module PositionSensorP() {
 
@@ -23,8 +22,6 @@ generic module PositionSensorP() {
 		position.y = call Random.rand16();
 
 		dbg("position_sensor", "POSITION READ: {x=%d, y=%d}\n", position.x, position.y);
-		printf("POSITION READ: {x=%d, y=%d}\n", position.x, position.y);
-		printfflush();
 		signal Read.readDone( SUCCESS, position );
 	}
 }
