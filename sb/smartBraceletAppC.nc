@@ -42,6 +42,7 @@ implementation {
   // App.AMPacket -> ActiveMessageC;
   App.ReceivePacket -> AMReceiverC; 
   App.SendPacket -> AMSenderC; 
+  App.Acks -> ActiveMessageC;
 
   //Timer interface
   App.MilliTimer -> TimerMilliC;

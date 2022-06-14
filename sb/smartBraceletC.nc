@@ -18,6 +18,7 @@ module smartBraceletC {
 	interface Packet;
     interface AMPacket as SendPacket;
 	interface AMPacket as ReceivePacket;
+	interface PacketAcknowledgements as Acks;
 
 	// interface for timer
 	interface Timer<TMilli> as MilliTimer;      // Timer used for pairing
@@ -78,6 +79,14 @@ module smartBraceletC {
   	event void SplitControl.stopDone(error_t err){
     	/* Fill it ... */
   	}
+  	
+  	char* kinematic_string(uint8_t kinematic){
+  		if(kinematic == 0) return "STANDING";
+  		else if(kinematic == 1) return "WALKING";
+  		else if(kinematic == 2) return "RUNNING";
+  		else return "FALLING";
+  	
+  	}
 
   	void send_packet(am_addr_t dest, uint8_t type, uint16_t pos_x, uint16_t pos_y, uint8_t kin_status) {
   		my_msg_t* msg;
@@ -96,11 +105,11 @@ module smartBraceletC {
 		msg->y = pos_y;
 		msg->kinematic_status = kin_status;
 		strcpy(msg->key, key);
-
+		call Acks.requestAck(&packet);
 	    if( call AMSend.send(dest, &packet, sizeof(my_msg_t)) == SUCCESS ){
 		   	dbg("radio",
-		   	    "packet sent: {\n\tsnd=%u->rcv=%u\n\tkey=%s\n\ttype=%u\n\tpos=(%u, %u)\n\tkinematic status=%u\n}.\n",
-		   	    call SendPacket.source(&packet), call SendPacket.destination(&packet), msg->key, msg->msg_type, msg->x, msg->y, msg->kinematic_status);
+		   	    "packet sent: {\n\tsnd=%u->rcv=%u\n\tkey=%s\n\ttype=%u\n\tpos=(%u, %u)\n\tkinematic status=%s\n}.\n",
+		   	    call SendPacket.source(&packet), call SendPacket.destination(&packet), msg->key, msg->msg_type, msg->x, msg->y, kinematic_string(msg->kinematic_status));
 
             locked = TRUE;
             dbg("radio", "radio locked.\n");
@@ -122,17 +131,7 @@ module smartBraceletC {
   	event void Milli60Timer.fired() {
 		dbg("alert", "MISSING ALERT! LAST KNOWN POSITION: x=%u,y=%u,kinematic_status=%u\n", x,y,kinematic_status);
   	}
-
-
-  	//********************* AMSend interface ****************//
-  	event void AMSend.sendDone(message_t* buf,error_t err) {
-  		locked = FALSE;
-
-		if ( err != SUCCESS ) return;
-
-		dbg("radio", "Packet sent successfully. \n");
-  	}
-
+  	
   	void isPairingDone(nx_uint8_t conf){
   		if(conf == BOTHWAYS){
   			dbg("control", "Ending Pairing phase, going into Operation mode\n");
@@ -146,6 +145,27 @@ module smartBraceletC {
   		}
   	}
 
+
+  	//********************* AMSend interface ****************//
+  	event void AMSend.sendDone(message_t* buf,error_t err) {
+  		locked = FALSE;
+
+		if ( err != SUCCESS ) return;
+
+		dbg("radio", "Packet sent successfully. \n");
+		
+		if(mode == PAIREND && call Acks.wasAcked(buf)){
+			confirmation++;
+			dbg("control", "Ack for PAIREND send received, count: %u\n", confirmation);
+			isPairingDone(confirmation);
+		}
+		else if(mode == PAIREND){
+			dbg("control", "Confirmation for PAIREND resent, Ack was not received\n");
+			send_packet(pair_addr, PAIREND, 0, 0, 0);
+		}
+  	}
+
+
   	void handle_pairing(my_msg_t* received, message_t* rcv, bool is_pairing) {
 
         // if we receive the first PAIRING MESSAGE (the pair_addr hasn't been
@@ -154,10 +174,9 @@ module smartBraceletC {
   			if(strcmp(key, received->key) == 0){
 	  			pair_addr = call ReceivePacket.source(rcv);
 	  			dbg("control", "PAIRING WITH: %u\n", pair_addr);
-	  			confirmation++;
-	  			dbg("control", "Confirmation for PAIREND sent, count: %u\n", confirmation);
+	  			//dbg("control", "Confirmation for PAIREND sent, count: %u+1\n", confirmation);
+	  			mode = PAIREND;
 	  			send_packet(pair_addr, PAIREND, 0, 0, 0);
-	  			isPairingDone(confirmation);
 	  		}
   		}
   		else if( !is_pairing && pair_addr != TOS_NODE_ID){
@@ -184,8 +203,8 @@ module smartBraceletC {
   		my_msg_t* msg = (my_msg_t*) payload;
 
   		dbg("radio",
-  		    "Packet received: {\n\tsnd=%u->rcv=%u\n\tkey=%s\n\ttype=%u\n\tpos=(%u, %u)\n\tkinematic status=%u\n}.\n",
-  			call ReceivePacket.source(buf), call ReceivePacket.destination(buf), msg->key, msg->msg_type, msg->x, msg->y, msg->kinematic_status);
+  		    "Packet received: {\n\tsnd=%u->rcv=%u\n\tkey=%s\n\ttype=%u\n\tpos=(%u, %u)\n\tkinematic status=%s\n}.\n",
+  			call ReceivePacket.source(buf), call ReceivePacket.destination(buf), msg->key, msg->msg_type, msg->x, msg->y, kinematic_string(msg->kinematic_status));
 
   		if ( msg->msg_type == PAIRING) {
   			handle_pairing(msg, buf, TRUE);
