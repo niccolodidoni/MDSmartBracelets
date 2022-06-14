@@ -19,11 +19,12 @@ module smartBraceletC {
 	interface Packet;
     interface AMPacket as SendPacket;
 	interface AMPacket as ReceivePacket;
-	
+    interface PacketAcknowledgements as Acks;
+
 	// interfaces for serial port
 	interface AMSend as SerialSend;
-	interface Packet as SerialPacket;  
-	interface SplitControl as SerialSC; 
+	interface Packet as SerialPacket;
+	interface SplitControl as SerialSC;
 
 	// interface for timer
 	interface Timer<TMilli> as MilliTimer;      // Timer used for pairing
@@ -44,9 +45,9 @@ module smartBraceletC {
   	message_t packet;
   	am_addr_t pair_addr = AM_BROADCAST_ADDR;
   	bool locked = FALSE;
-  	
-  	message_t serial_packet; 
-  	bool serial_locked = FALSE; 
+
+  	message_t serial_packet;
+  	bool serial_locked = FALSE;
 
   	nx_uint16_t x;
   	nx_uint16_t y;
@@ -61,7 +62,7 @@ module smartBraceletC {
   	//***************** Boot interface ********************//
   	event void Boot.booted() {
 		call SplitControl.start();
-		call SerialSC.start(); 
+		call SerialSC.start();
 
 		strcpy(key, KEYS[(TOS_NODE_ID - 1) / 2]);
 		dbg("boot","Application booted with key %s.\n", key);
@@ -88,39 +89,47 @@ module smartBraceletC {
   	event void SplitControl.stopDone(error_t err){
     	/* Fill it ... */
   	}
-  	
-  	
+
+
   	void send_serial_packet(nx_uint8_t type, nx_uint16_t alert_x, nx_uint16_t alert_y) {
   		serial_msg_t* msg;
-  		
-  		if ( serial_locked ) return; 
-  		
+
+  		if ( serial_locked ) return;
+
   		msg = (serial_msg_t*) call SerialPacket.getPayload(&serial_packet, sizeof(serial_msg_t));
   		if (msg == NULL) return;
-  		
-  		msg->alert_type = type; 
+
+  		msg->alert_type = type;
   		msg->x = alert_x;
-  		msg->y = alert_y;  
-  		
+  		msg->y = alert_y;
+
   		if ( call SerialSend.send(AM_BROADCAST_ADDR, &serial_packet, sizeof(serial_msg_t)) == SUCCESS ) {
-  			dbg("serial", "serial packet sent: {\n\ttype=%u\n\tlast_pos=(x=%u, y=%u)\n}\n", msg->alert_type, msg->x, msg->y); 
-  			serial_locked = TRUE; 
+  			dbg("serial", "serial packet sent: {\n\ttype=%u\n\tlast_pos=(x=%u, y=%u)\n}\n", msg->alert_type, msg->x, msg->y);
+  			serial_locked = TRUE;
   		}
   	}
-  	
+
   	event void SerialSC.startDone(error_t err) {
   		if ( err == SUCCESS ) {
-  			dbg("serial", "Serial bus active. \n"); 
-  			send_serial_packet(TEST, 0, 0); 
+  			dbg("serial", "Serial bus active. \n");
+  			send_serial_packet(TEST, 0, 0);
   		} else {
   			dbg("serial", "Failed to activate the serial bus. Trying again. \n");
-  			call SerialSC.start();  
+  			call SerialSC.start();
   		}
-  		
+
   	}
-  	
+
   	event void SerialSC.stopDone(error_t err) {
-  		
+
+    }
+
+  	char* kinematic_string(uint8_t kinematic){
+  		if(kinematic == 0) return "STANDING";
+  		else if(kinematic == 1) return "WALKING";
+  		else if(kinematic == 2) return "RUNNING";
+  		else return "FALLING";
+
   	}
 
   	void send_packet(am_addr_t dest, uint8_t type, uint16_t pos_x, uint16_t pos_y, uint8_t kin_status) {
@@ -140,11 +149,11 @@ module smartBraceletC {
 		msg->y = pos_y;
 		msg->kinematic_status = kin_status;
 		strcpy(msg->key, key);
-
+		call Acks.requestAck(&packet);
 	    if( call AMSend.send(dest, &packet, sizeof(my_msg_t)) == SUCCESS ){
 		   	dbg("radio",
-		   	    "packet sent: {\n\tsnd=%u->rcv=%u\n\tkey=%s\n\ttype=%u\n\tpos=(%u, %u)\n\tkinematic status=%u\n}.\n",
-		   	    call SendPacket.source(&packet), call SendPacket.destination(&packet), msg->key, msg->msg_type, msg->x, msg->y, msg->kinematic_status);
+		   	    "packet sent: {\n\tsnd=%u->rcv=%u\n\tkey=%s\n\ttype=%u\n\tpos=(%u, %u)\n\tkinematic status=%s\n}.\n",
+		   	    call SendPacket.source(&packet), call SendPacket.destination(&packet), msg->key, msg->msg_type, msg->x, msg->y, kinematic_string(msg->kinematic_status));
 
             locked = TRUE;
             dbg("radio", "radio locked.\n");
@@ -159,12 +168,12 @@ module smartBraceletC {
 
   	event void Milli10Timer.fired() {
   		dbg("control","Child timer fired\n");
-		call SensorRead.read(); 
+		call SensorRead.read();
   	}
 
   	event void Milli60Timer.fired() {
-		dbg("alert", "MISSING ALERT! LAST KNOWN POSITION: x=%u,y=%u,kinematic_status=%u\n", x,y,kinematic_status);
-		send_serial_packet(MISSING, x, y); 
+		dbg("alert", "MISSING ALERT! LAST KNOWN POSITION: x=%u,y=%u,kinematic_status=%u\n", x,y,kinematic_string(kinematic_status));
+		send_serial_packet(MISSING, x, y);
   	}
 
 
@@ -190,6 +199,27 @@ module smartBraceletC {
   		}
   	}
 
+
+  	//********************* AMSend interface ****************//
+  	event void AMSend.sendDone(message_t* buf,error_t err) {
+  		locked = FALSE;
+
+		if ( err != SUCCESS ) return;
+
+		dbg("radio", "Packet sent successfully. \n");
+
+		if(mode == PAIREND && call Acks.wasAcked(buf)){
+			confirmation++;
+			dbg("control", "Ack for PAIREND send received, count: %u\n", confirmation);
+			isPairingDone(confirmation);
+		}
+		else if(mode == PAIREND){
+			dbg("control", "Confirmation for PAIREND resent, Ack was not received\n");
+			send_packet(pair_addr, PAIREND, 0, 0, 0);
+		}
+  	}
+
+
   	void handle_pairing(my_msg_t* received, message_t* rcv, bool is_pairing) {
 
         // if we receive the first PAIRING MESSAGE (the pair_addr hasn't been
@@ -198,10 +228,9 @@ module smartBraceletC {
   			if(strcmp(key, received->key) == 0){
 	  			pair_addr = call ReceivePacket.source(rcv);
 	  			dbg("control", "PAIRING WITH: %u\n", pair_addr);
-	  			confirmation++;
-	  			dbg("control", "Confirmation for PAIREND sent, count: %u\n", confirmation);
+	  			//dbg("control", "Confirmation for PAIREND sent, count: %u+1\n", confirmation);
+	  			mode = PAIREND;
 	  			send_packet(pair_addr, PAIREND, 0, 0, 0);
-	  			isPairingDone(confirmation);
 	  		}
   		}
   		else if( !is_pairing && pair_addr != TOS_NODE_ID){
@@ -218,8 +247,8 @@ module smartBraceletC {
   		kinematic_status = received->kinematic_status;
 
         if (kinematic_status == FALLING && role == PARENT) {
-            dbg("alert", "ALERT. FALLING status detected. Baby is in position (x=%u, y=%u)", x, y); 
-            send_serial_packet(FALL, x, y); 
+            dbg("alert", "ALERT. FALLING status detected. Baby is in position (x=%u, y=%u)", x, y);
+            send_serial_packet(FALL, x, y);
         }
   	}
 
@@ -229,8 +258,8 @@ module smartBraceletC {
   		my_msg_t* msg = (my_msg_t*) payload;
 
   		dbg("radio",
-  		    "Packet received: {\n\tsnd=%u->rcv=%u\n\tkey=%s\n\ttype=%u\n\tpos=(%u, %u)\n\tkinematic status=%u\n}.\n",
-  			call ReceivePacket.source(buf), call ReceivePacket.destination(buf), msg->key, msg->msg_type, msg->x, msg->y, msg->kinematic_status);
+  		    "Packet received: {\n\tsnd=%u->rcv=%u\n\tkey=%s\n\ttype=%u\n\tpos=(%u, %u)\n\tkinematic status=%s\n}.\n",
+  			call ReceivePacket.source(buf), call ReceivePacket.destination(buf), msg->key, msg->msg_type, msg->x, msg->y, kinematic_string(msg->kinematic_status));
 
   		if ( msg->msg_type == PAIRING) {
   			handle_pairing(msg, buf, TRUE);
@@ -240,7 +269,7 @@ module smartBraceletC {
   			call MilliTimer.stop();
   		}
   		// used to confirm we are both in info mode and msg comes from child addr
-  		else if ( msg->msg_type == INFO && mode == INFO && call ReceivePacket.source(buf) == pair_addr) {	
+  		else if ( msg->msg_type == INFO && mode == INFO && call ReceivePacket.source(buf) == pair_addr) {
   			dbg("control", "Received Info from Child\n");
   			handle_info(msg);
   			call Milli60Timer.startOneShot(60000);
@@ -249,12 +278,12 @@ module smartBraceletC {
 		return buf;
 
   	}
-  	
+
   	//***************************************************************//
   	event void SerialSend.sendDone(message_t* buf,error_t err) {
-  		serial_locked = FALSE; 
+  		serial_locked = FALSE;
   		if ( err == SUCCESS ) {
-  			dbg("serial", "Message successfully delivered on serial bus. \n"); 
+  			dbg("serial", "Message successfully delivered on serial bus. \n");
   		}
   	}
 
@@ -266,17 +295,17 @@ module smartBraceletC {
     event void PositionRead.readDone(error_t result, pos_t data) {
         dbg("app_kin_sensor", "POSITION: (x=%u, y=%u)\n", data.x, data.y);
     }
-    
+
     event void SensorRead.readDone(error_t result, sensor_data_t data) {
-    	if (role != CHILD) return; 
-    
+    	if (role != CHILD) return;
+
     	if (result != SUCCESS) {
-    		dbg("app_sensor", "Error in reading sensor data. \n"); 
-    		return; 
+    		dbg("app_sensor", "Error in reading sensor data. \n");
+    		return;
     	}
-    	
-    	dbg("app_sensor", "Data received from sensor: {\n\tkinetic_status=%u\n\tposition=(x=%u, y=%u)\n}\n", data.kinematic_status, data.x, data.y); 
-    	send_packet(pair_addr, INFO, data.x, data.y, data.kinematic_status); 
+
+    	dbg("app_sensor", "Data received from sensor: {\n\tkinetic_status=%u\n\tposition=(x=%u, y=%u)\n}\n", data.kinematic_status, data.x, data.y);
+    	send_packet(pair_addr, INFO, data.x, data.y, data.kinematic_status);
     }
 
 }

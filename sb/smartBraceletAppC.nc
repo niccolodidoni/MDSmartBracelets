@@ -14,7 +14,7 @@ implementation {
   components new TimerMilliC() as Timer10MilliC;
   components new TimerMilliC() as Timer60MilliC;
   components ActiveMessageC;
-  components SerialActiveMessageC as SerialAM; 
+  components SerialActiveMessageC as SerialAM;
 
   // Sensor used to read the position of the bracelet.
   // INTERFACES: Read
@@ -23,9 +23,9 @@ implementation {
   // Sensor used to read the kinetic status of the bracelet.
   // INTERFACES: Read
   components new KineticSensorC();
-  
-  // Sensor used to read the kinematic status and the position of the bracelet. 
-  components new SensorC(); 
+
+  // Sensor used to read the kinematic status and the position of the bracelet.
+  components new SensorC();
 
 /****** INTERFACES *****/
   //Boot interface
@@ -41,13 +41,14 @@ implementation {
 
   //Interfaces to access package fields
   App.Packet -> AMSenderC;
-  App.ReceivePacket -> AMReceiverC; 
+  App.ReceivePacket -> AMReceiverC;
   App.SendPacket -> AMSenderC;
-  
+  App.Acks -> ActiveMessageC;
+
   // Serial communication
   App.SerialSend -> SerialAM.AMSend[AM_SERIAL_MSG];
-  App.SerialPacket -> SerialAM; 
-  App.SerialSC -> SerialAM; 
+  App.SerialPacket -> SerialAM;
+  App.SerialSC -> SerialAM;
 
   //Timer interface
   App.MilliTimer -> TimerMilliC;
@@ -57,5 +58,5 @@ implementation {
   // Sensor read
   App.PositionRead -> PositionSensorC;
   App.KineticRead -> KineticSensorC;
-  App.SensorRead -> SensorC; 
+  App.SensorRead -> SensorC;
 }

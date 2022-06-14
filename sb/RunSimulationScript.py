@@ -52,6 +52,8 @@ print "Activate debug message on channel radio"
 t.addChannel("radio",out);
 print "Activate debug message on channel control"
 t.addChannel("control",out);
+print "Activate debug message on channel alert"
+t.addChannel("alert",out);
 print "Activate debug message on channel serial"
 t.addChannel("serial",out);
 
@@ -63,9 +65,21 @@ print ">>>Will boot at time",  time1/t.ticksPerSecond(), "[sec]";
 
 print "Creating node 2...";
 node2 = t.getNode(2);
-time2 = 1*t.ticksPerSecond();
+time2 = 0*t.ticksPerSecond();
 node2.bootAtTime(time2);
 print ">>>Will boot at time", time2/t.ticksPerSecond(), "[sec]";
+
+print "Creating node 3...";
+node3 = t.getNode(3);
+time3 = 0*t.ticksPerSecond();
+node3.bootAtTime(time3);
+print ">>>Will boot at time", time3/t.ticksPerSecond(), "[sec]";
+
+print "Creating node 4...";
+node4 = t.getNode(4);
+time4 = 0*t.ticksPerSecond();
+node4.bootAtTime(time4);
+print ">>>Will boot at time", time4/t.ticksPerSecond(), "[sec]";
 
 
 print "Creating radio channels..."
@@ -97,21 +111,29 @@ for line in lines:
             mid_compl = 0;
             sys.stdout.write ("#")
             sys.stdout.flush()
-        for i in range(1, 3):
+        for i in range(1, 5):
             t.getNode(i).addNoiseTraceReading(val)
 print "Done!";
 
-for i in range(1, 3):
+for i in range(1, 5):
     print ">>>Creating noise model for node:",i;
     t.getNode(i).createNoiseModel()
 
 print "Start simulation with TOSSIM! \n\n\n";
 
-for i in range(0,60000):
+starting_time = t.time()
+turn_off_time = t.time()
+turn_off = False
+done = False
+while(t.time() < (starting_time + 300*t.ticksPerSecond())):
 	t.runNextEvent()
-	if i == 2000: 
-		print "Turning off mote 1"
-		t.getNode(1).turnOff()
-		
+	if((t.time() > starting_time + 60*t.ticksPerSecond()) and turn_off == False):
+		turn_off_time = t.time()
+		node3.turnOff()
+		turn_off = True
+	if(t.time() > turn_off_time + 90*t.ticksPerSecond() and turn_off == True and done == False):
+		node3.turnOn()
+		done = True
+
 
 print "\n\n\nSimulation finished!";
