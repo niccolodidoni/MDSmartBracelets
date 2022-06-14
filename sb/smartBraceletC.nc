@@ -2,7 +2,7 @@
 #include "Timer.h"
 #include "string.h"
 
-#define PAIRING_TIME 30000
+#define PAIRING_TIME 3000
 #define BOTHWAYS 2
 
 module smartBraceletC {

@@ -29,7 +29,7 @@ generic module KineticSensorP() {
         uint16_t num;
 
         num = call Random.rand16();
-        dbg("kinetic_sensor", "RANDOM VALUE READY: %d", num);
+        dbg("kinetic_sensor", "RANDOM VALUE READY: %d\n", num);
 
         status = FALLING;
         if ( 0 <= num && num <= STANDING_UPPER ) {
