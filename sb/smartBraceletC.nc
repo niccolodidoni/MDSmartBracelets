@@ -27,6 +27,7 @@ module smartBraceletC {
 	// interface used to perform sensor reading
 	interface Read<pos_t> as PositionRead;
     interface Read<kinematic_status_t> as KineticRead;
+    interface Read<sensor_data_t> as SensorRead;
   }
 
 } implementation {
@@ -113,8 +114,9 @@ module smartBraceletC {
 
   	event void Milli10Timer.fired() {
   		dbg("control","Child timer fired\n");
-		call KineticRead.read();
-		call PositionRead.read();
+		// call KineticRead.read();
+		// call PositionRead.read();
+		call SensorRead.read(); 
   	}
 
   	event void Milli60Timer.fired() {
@@ -192,7 +194,8 @@ module smartBraceletC {
   			handle_pairing(msg, buf, FALSE);
   			call MilliTimer.stop();
   		}
-  		else if ( msg->msg_type == INFO && mode == INFO && call ReceivePacket.source(buf) == pair_addr) {	// used to confirm we are both in info mode and msg comes from child addr
+  		// used to confirm we are both in info mode and msg comes from child addr
+  		else if ( msg->msg_type == INFO && mode == INFO && call ReceivePacket.source(buf) == pair_addr) {	
   			dbg("control", "Received Info from Child\n");
   			handle_info(msg);
   			call Milli60Timer.startOneShot(60000);
@@ -209,6 +212,18 @@ module smartBraceletC {
 
     event void PositionRead.readDone(error_t result, pos_t data) {
         dbg("app_kin_sensor", "POSITION: (x=%u, y=%u)\n", data.x, data.y);
+    }
+    
+    event void SensorRead.readDone(error_t result, sensor_data_t data) {
+    	if (role != CHILD) return; 
+    
+    	if (result != SUCCESS) {
+    		dbg("app_sensor", "Error in reading sensor data. \n"); 
+    		return; 
+    	}
+    	
+    	dbg("app_sensor", "Data received from sensor: {\n\tkinetic_status=%u\n\tposition=(x=%u, y=%u)\n}\n", data.kinematic_status, data.x, data.y); 
+    	send_packet(pair_addr, INFO, data.x, data.y, data.kinematic_status); 
     }
 
 }

@@ -898,7 +898,7 @@ extern void *malloc(size_t __size) __attribute((__leaf__)) __attribute((__nothro
 #line 483
 extern void free(void *__ptr) __attribute((__leaf__)) __attribute((__nothrow__)) ;
 #line 741
-typedef int (*__compar_fn_t)(const void *arg_0xb7bdb458, const void *arg_0xb7bdb5f0);
+typedef int (*__compar_fn_t)(const void *arg_0xb7bc7458, const void *arg_0xb7bc75f0);
 #line 779
 __extension__ 
 #line 796
@@ -917,7 +917,7 @@ extern double sqrt(double __x) __attribute((__leaf__)) __attribute((__nothrow__)
 #line 184
 extern double floor(double __x) __attribute((__leaf__)) __attribute((__nothrow__)) __attribute((const)) ;
 #line 260
-extern double erfc(double arg_0xb7b8c8c8) __attribute((__leaf__)) __attribute((__nothrow__)) ;
+extern double erfc(double arg_0xb7b788c8) __attribute((__leaf__)) __attribute((__nothrow__)) ;
 #line 336
 __extension__ 
 
@@ -1312,8 +1312,8 @@ typedef struct hashtable hashtable_t;
 #line 78
 struct hashtable *
 create_hashtable(unsigned int minsize, 
-unsigned int (*hashfunction)(void *arg_0xb7a36840), 
-int (*key_eq_fn)(void *arg_0xb7a36c88, void *arg_0xb7a36e00));
+unsigned int (*hashfunction)(void *arg_0xb7a22840), 
+int (*key_eq_fn)(void *arg_0xb7a22c88, void *arg_0xb7a22e00));
 #line 103
 #line 102
 int 
@@ -1349,7 +1349,7 @@ typedef struct sim_log_channel {
 } sim_log_channel_t;
 
 enum __nesc_unnamed4273 {
-  SIM_LOG_OUTPUT_COUNT = 200U
+  SIM_LOG_OUTPUT_COUNT = 202U
 };
 
 sim_log_output_t outputs[SIM_LOG_OUTPUT_COUNT];
@@ -1926,7 +1926,7 @@ struct tm;
 
 struct tm;
 # 46 "/opt/tinyos-main-2.1.2/tos/lib/tossim/randomlib.h"
-static inline void RandomInitialise(int arg_0xb79059b8, int arg_0xb7905b10);
+static inline void RandomInitialise(int arg_0xb78f19b8, int arg_0xb78f1b10);
 static double RandomUniform(void );
 # 51 "/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.c"
 int numCase1 = 0;
@@ -2289,8 +2289,19 @@ typedef struct pos {
   nx_uint16_t x;
   nx_uint16_t y;
 } pos_t;
-#line 38
-#line 31
+
+
+
+
+
+#line 25
+typedef struct sensor_data {
+  kinematic_status_t kinematic_status;
+  nx_uint16_t x;
+  nx_uint16_t y;
+} sensor_data_t;
+#line 44
+#line 37
 typedef nx_struct my_msg {
   nx_uint8_t key[21];
   nx_uint8_t msg_type;
@@ -3742,6 +3753,7 @@ typedef union __nesc_unnamed4326 {
 typedef TMilli smartBraceletC$Milli60Timer$precision_tag;
 typedef pos_t smartBraceletC$PositionRead$val_t;
 typedef TMilli smartBraceletC$MilliTimer$precision_tag;
+typedef sensor_data_t smartBraceletC$SensorRead$val_t;
 typedef kinematic_status_t smartBraceletC$KineticRead$val_t;
 typedef TMilli smartBraceletC$Milli10Timer$precision_tag;
 enum AMQueueP$__nesc_unnamed4328 {
@@ -3773,6 +3785,8 @@ typedef TMilli /*smartBraceletAppC.PositionSensorC.PositionSensorP*/PositionSens
 typedef pos_t /*smartBraceletAppC.PositionSensorC.PositionSensorP*/PositionSensorP$0$Read$val_t;
 typedef TMilli /*smartBraceletAppC.KineticSensorC.KineticSensorP*/KineticSensorP$0$Timer0$precision_tag;
 typedef kinematic_status_t /*smartBraceletAppC.KineticSensorC.KineticSensorP*/KineticSensorP$0$Read$val_t;
+typedef TMilli /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Timer0$precision_tag;
+typedef sensor_data_t /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Read$val_t;
 # 62 "/opt/tinyos-main-2.1.2/tos/interfaces/Init.nc"
 static error_t PlatformP$Init$init(void );
 #line 62
@@ -3788,11 +3802,11 @@ static error_t MeasureClockC$Init$init(void );
 # 67 "/opt/tinyos-main-2.1.2/tos/interfaces/TaskBasic.nc"
 static error_t SimSchedulerBasicP$TaskBasic$postTask(
 # 49 "/opt/tinyos-main-2.1.2/tos/lib/tossim/SimSchedulerBasicP.nc"
-uint8_t arg_0xb7861650);
+uint8_t arg_0xb784d650);
 # 75 "/opt/tinyos-main-2.1.2/tos/interfaces/TaskBasic.nc"
 static void SimSchedulerBasicP$TaskBasic$default$runTask(
 # 49 "/opt/tinyos-main-2.1.2/tos/lib/tossim/SimSchedulerBasicP.nc"
-uint8_t arg_0xb7861650);
+uint8_t arg_0xb784d650);
 # 57 "/opt/tinyos-main-2.1.2/tos/interfaces/Scheduler.nc"
 static void SimSchedulerBasicP$Scheduler$init(void );
 
@@ -3822,7 +3836,7 @@ static long long int SimMoteP$SimMote$getStartTime(void );
 # 80 "/opt/tinyos-main-2.1.2/tos/interfaces/AMSend.nc"
 static error_t TossimActiveMessageC$AMSend$send(
 # 47 "/opt/tinyos-main-2.1.2/tos/lib/tossim/TossimActiveMessageC.nc"
-am_id_t arg_0xb76a5108, 
+am_id_t arg_0xb7691108, 
 # 80 "/opt/tinyos-main-2.1.2/tos/interfaces/AMSend.nc"
 am_addr_t addr, 
 #line 71
@@ -3845,7 +3859,7 @@ message_t *
 
 TossimActiveMessageC$Snoop$default$receive(
 # 49 "/opt/tinyos-main-2.1.2/tos/lib/tossim/TossimActiveMessageC.nc"
-am_id_t arg_0xb76a2178, 
+am_id_t arg_0xb768e178, 
 # 71 "/opt/tinyos-main-2.1.2/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -3892,7 +3906,7 @@ message_t *
 
 TossimActiveMessageC$Receive$default$receive(
 # 48 "/opt/tinyos-main-2.1.2/tos/lib/tossim/TossimActiveMessageC.nc"
-am_id_t arg_0xb76a5ac8, 
+am_id_t arg_0xb7691ac8, 
 # 71 "/opt/tinyos-main-2.1.2/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -4033,6 +4047,8 @@ uint8_t len);
 # 83 "/opt/tinyos-main-2.1.2/tos/lib/timer/Timer.nc"
 static void smartBraceletC$MilliTimer$fired(void );
 # 63 "/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc"
+static void smartBraceletC$SensorRead$readDone(error_t result, smartBraceletC$SensorRead$val_t val);
+#line 63
 static void smartBraceletC$KineticRead$readDone(error_t result, smartBraceletC$KineticRead$val_t val);
 # 83 "/opt/tinyos-main-2.1.2/tos/lib/timer/Timer.nc"
 static void smartBraceletC$Milli10Timer$fired(void );
@@ -4060,7 +4076,7 @@ error_t error);
 # 110 "/opt/tinyos-main-2.1.2/tos/interfaces/AMSend.nc"
 static void /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$AMSend$sendDone(
 # 48 "/opt/tinyos-main-2.1.2/tos/system/AMQueueImplP.nc"
-am_id_t arg_0xb7530730, 
+am_id_t arg_0xb75179f8, 
 # 103 "/opt/tinyos-main-2.1.2/tos/interfaces/AMSend.nc"
 message_t * msg, 
 
@@ -4073,7 +4089,7 @@ error_t error);
 # 75 "/opt/tinyos-main-2.1.2/tos/interfaces/Send.nc"
 static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Send$send(
 # 46 "/opt/tinyos-main-2.1.2/tos/system/AMQueueImplP.nc"
-uint8_t arg_0xb7533ca8, 
+uint8_t arg_0xb7517010, 
 # 67 "/opt/tinyos-main-2.1.2/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -4087,7 +4103,7 @@ uint8_t len);
 #line 100
 static void /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Send$default$sendDone(
 # 46 "/opt/tinyos-main-2.1.2/tos/system/AMQueueImplP.nc"
-uint8_t arg_0xb7533ca8, 
+uint8_t arg_0xb7517010, 
 # 96 "/opt/tinyos-main-2.1.2/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -4164,11 +4180,11 @@ static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$TimerFrom$fire
 #line 83
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$default$fired(
 # 48 "/opt/tinyos-main-2.1.2/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0xb73b13a8);
+uint8_t arg_0xb7398c70);
 # 64 "/opt/tinyos-main-2.1.2/tos/lib/timer/Timer.nc"
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$startPeriodic(
 # 48 "/opt/tinyos-main-2.1.2/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0xb73b13a8, 
+uint8_t arg_0xb7398c70, 
 # 64 "/opt/tinyos-main-2.1.2/tos/lib/timer/Timer.nc"
 uint32_t dt);
 
@@ -4181,7 +4197,7 @@ uint32_t dt);
 
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$startOneShot(
 # 48 "/opt/tinyos-main-2.1.2/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0xb73b13a8, 
+uint8_t arg_0xb7398c70, 
 # 73 "/opt/tinyos-main-2.1.2/tos/lib/timer/Timer.nc"
 uint32_t dt);
 
@@ -4190,7 +4206,7 @@ uint32_t dt);
 
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$stop(
 # 48 "/opt/tinyos-main-2.1.2/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0xb73b13a8);
+uint8_t arg_0xb7398c70);
 # 82 "/opt/tinyos-main-2.1.2/tos/lib/timer/Counter.nc"
 static void /*HilTimerMilliC.CounterToLocalTimeC*/CounterToLocalTimeC$0$Counter$overflow(void );
 # 52 "/opt/tinyos-main-2.1.2/tos/interfaces/Random.nc"
@@ -4201,12 +4217,12 @@ static uint32_t RandomMlcgC$Random$rand32(void );
 static error_t RandomMlcgC$Init$init(void );
 # 83 "/opt/tinyos-main-2.1.2/tos/lib/timer/Timer.nc"
 static void /*smartBraceletAppC.PositionSensorC.PositionSensorP*/PositionSensorP$0$Timer0$fired(void );
-# 55 "/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc"
-static error_t /*smartBraceletAppC.PositionSensorC.PositionSensorP*/PositionSensorP$0$Read$read(void );
-# 83 "/opt/tinyos-main-2.1.2/tos/lib/timer/Timer.nc"
+#line 83
 static void /*smartBraceletAppC.KineticSensorC.KineticSensorP*/KineticSensorP$0$Timer0$fired(void );
+#line 83
+static void /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Timer0$fired(void );
 # 55 "/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc"
-static error_t /*smartBraceletAppC.KineticSensorC.KineticSensorP*/KineticSensorP$0$Read$read(void );
+static error_t /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Read$read(void );
 # 62 "/opt/tinyos-main-2.1.2/tos/interfaces/Init.nc"
 static error_t PlatformP$MoteInit$init(void );
 #line 62
@@ -4251,7 +4267,7 @@ int sim_main_start_mote(void )   ;
 # 75 "/opt/tinyos-main-2.1.2/tos/interfaces/TaskBasic.nc"
 static void SimSchedulerBasicP$TaskBasic$runTask(
 # 49 "/opt/tinyos-main-2.1.2/tos/lib/tossim/SimSchedulerBasicP.nc"
-uint8_t arg_0xb7861650);
+uint8_t arg_0xb784d650);
 
 
 
@@ -4419,7 +4435,7 @@ static am_addr_t TossimActiveMessageC$amAddress(void );
 # 110 "/opt/tinyos-main-2.1.2/tos/interfaces/AMSend.nc"
 static void TossimActiveMessageC$AMSend$sendDone(
 # 47 "/opt/tinyos-main-2.1.2/tos/lib/tossim/TossimActiveMessageC.nc"
-am_id_t arg_0xb76a5108, 
+am_id_t arg_0xb7691108, 
 # 103 "/opt/tinyos-main-2.1.2/tos/interfaces/AMSend.nc"
 message_t * msg, 
 
@@ -4438,7 +4454,7 @@ message_t *
 
 TossimActiveMessageC$Snoop$receive(
 # 49 "/opt/tinyos-main-2.1.2/tos/lib/tossim/TossimActiveMessageC.nc"
-am_id_t arg_0xb76a2178, 
+am_id_t arg_0xb768e178, 
 # 71 "/opt/tinyos-main-2.1.2/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -4457,7 +4473,7 @@ message_t *
 
 TossimActiveMessageC$Receive$receive(
 # 48 "/opt/tinyos-main-2.1.2/tos/lib/tossim/TossimActiveMessageC.nc"
-am_id_t arg_0xb76a5ac8, 
+am_id_t arg_0xb7691ac8, 
 # 71 "/opt/tinyos-main-2.1.2/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -4832,19 +4848,6 @@ static am_addr_t ActiveMessageAddressC$ActiveMessageAddress$amAddress(void );
 static inline am_addr_t ActiveMessageAddressC$amAddress(void );
 # 104 "/opt/tinyos-main-2.1.2/tos/interfaces/SplitControl.nc"
 static error_t smartBraceletC$SplitControl$start(void );
-# 80 "/opt/tinyos-main-2.1.2/tos/interfaces/AMSend.nc"
-static error_t smartBraceletC$AMSend$send(am_addr_t addr, 
-#line 71
-message_t * msg, 
-
-
-
-
-
-
-
-
-uint8_t len);
 # 126 "/opt/tinyos-main-2.1.2/tos/interfaces/Packet.nc"
 static 
 #line 123
@@ -4854,6 +4857,19 @@ void *
 smartBraceletC$Packet$getPayload(
 #line 121
 message_t * msg, 
+
+
+
+
+uint8_t len);
+# 80 "/opt/tinyos-main-2.1.2/tos/interfaces/AMSend.nc"
+static error_t smartBraceletC$AMSend$send(am_addr_t addr, 
+#line 71
+message_t * msg, 
+
+
+
+
 
 
 
@@ -4869,12 +4885,12 @@ message_t * amsg);
 static am_addr_t smartBraceletC$ReceivePacket$destination(
 #line 74
 message_t * amsg);
-# 55 "/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc"
-static error_t smartBraceletC$PositionRead$read(void );
 # 64 "/opt/tinyos-main-2.1.2/tos/lib/timer/Timer.nc"
 static void smartBraceletC$MilliTimer$startPeriodic(uint32_t dt);
 #line 78
 static void smartBraceletC$MilliTimer$stop(void );
+# 55 "/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc"
+static error_t smartBraceletC$SensorRead$read(void );
 # 88 "/opt/tinyos-main-2.1.2/tos/interfaces/AMPacket.nc"
 static am_addr_t smartBraceletC$SendPacket$source(
 #line 84
@@ -4883,11 +4899,9 @@ message_t * amsg);
 static am_addr_t smartBraceletC$SendPacket$destination(
 #line 74
 message_t * amsg);
-# 55 "/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc"
-static error_t smartBraceletC$KineticRead$read(void );
 # 64 "/opt/tinyos-main-2.1.2/tos/lib/timer/Timer.nc"
 static void smartBraceletC$Milli10Timer$startPeriodic(uint32_t dt);
-# 34 "smartBraceletC.nc"
+# 35 "smartBraceletC.nc"
 uint8_t smartBraceletC$role[1000];
 nx_uint8_t smartBraceletC$key[1000][21];
 
@@ -4914,20 +4928,20 @@ static inline void smartBraceletC$Boot$booted(void );
 
 
 
-
 static inline void smartBraceletC$SplitControl$startDone(error_t err);
-#line 79
+#line 78
 static inline void smartBraceletC$SplitControl$stopDone(error_t err);
 
 
 
 static void smartBraceletC$send_packet(am_addr_t dest, uint8_t type, uint16_t pos_x, uint16_t pos_y, uint8_t kin_status);
-#line 112
+#line 111
 static inline void smartBraceletC$MilliTimer$fired(void );
 
 
 
 static inline void smartBraceletC$Milli10Timer$fired(void );
+
 
 
 
@@ -4961,12 +4975,16 @@ static inline void smartBraceletC$handle_info(my_msg_t *received);
 
 
 static inline message_t *smartBraceletC$Receive$receive(message_t *buf, void *payload, uint8_t len);
-#line 205
+#line 206
 static inline void smartBraceletC$KineticRead$readDone(error_t result, kinematic_status_t data);
 
 
 
 static inline void smartBraceletC$PositionRead$readDone(error_t result, pos_t data);
+
+
+
+static inline void smartBraceletC$SensorRead$readDone(error_t result, sensor_data_t data);
 # 110 "/opt/tinyos-main-2.1.2/tos/interfaces/AMSend.nc"
 static void /*smartBraceletAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP$0$AMSend$sendDone(
 #line 103
@@ -5023,7 +5041,7 @@ static inline void /*smartBraceletAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueE
 # 80 "/opt/tinyos-main-2.1.2/tos/interfaces/AMSend.nc"
 static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$AMSend$send(
 # 48 "/opt/tinyos-main-2.1.2/tos/system/AMQueueImplP.nc"
-am_id_t arg_0xb7530730, 
+am_id_t arg_0xb75179f8, 
 # 80 "/opt/tinyos-main-2.1.2/tos/interfaces/AMSend.nc"
 am_addr_t addr, 
 #line 71
@@ -5040,7 +5058,7 @@ uint8_t len);
 # 100 "/opt/tinyos-main-2.1.2/tos/interfaces/Send.nc"
 static void /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Send$sendDone(
 # 46 "/opt/tinyos-main-2.1.2/tos/system/AMQueueImplP.nc"
-uint8_t arg_0xb7533ca8, 
+uint8_t arg_0xb7517010, 
 # 96 "/opt/tinyos-main-2.1.2/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -5440,7 +5458,7 @@ static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$TimerFrom$stop
 
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$fired(
 # 48 "/opt/tinyos-main-2.1.2/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0xb73b13a8);
+uint8_t arg_0xb7398c70);
 #line 71
 enum /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$__nesc_unnamed4338 {
 #line 71
@@ -5451,7 +5469,7 @@ typedef int /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$__nesc_sillyta
 #line 53
 enum /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$__nesc_unnamed4339 {
 
-  VirtualizeTimerC$0$NUM_TIMERS = 5U, 
+  VirtualizeTimerC$0$NUM_TIMERS = 6U, 
   VirtualizeTimerC$0$END_OF_LIST = 255
 };
 
@@ -5520,34 +5538,32 @@ static inline error_t RandomMlcgC$Init$init(void );
 static uint32_t RandomMlcgC$Random$rand32(void );
 #line 89
 static inline uint16_t RandomMlcgC$Random$rand16(void );
-# 73 "/opt/tinyos-main-2.1.2/tos/lib/timer/Timer.nc"
-static void /*smartBraceletAppC.PositionSensorC.PositionSensorP*/PositionSensorP$0$Timer0$startOneShot(uint32_t dt);
 # 63 "/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc"
 static void /*smartBraceletAppC.PositionSensorC.PositionSensorP*/PositionSensorP$0$Read$readDone(error_t result, /*smartBraceletAppC.PositionSensorC.PositionSensorP*/PositionSensorP$0$Read$val_t val);
 # 52 "/opt/tinyos-main-2.1.2/tos/interfaces/Random.nc"
 static uint16_t /*smartBraceletAppC.PositionSensorC.PositionSensorP*/PositionSensorP$0$Random$rand16(void );
-# 13 "PositionSensorP.nc"
-static inline error_t /*smartBraceletAppC.PositionSensorC.PositionSensorP*/PositionSensorP$0$Read$read(void );
-
-
-
-
-
+# 19 "PositionSensorP.nc"
 static inline void /*smartBraceletAppC.PositionSensorC.PositionSensorP*/PositionSensorP$0$Timer0$fired(void );
-# 73 "/opt/tinyos-main-2.1.2/tos/lib/timer/Timer.nc"
-static void /*smartBraceletAppC.KineticSensorC.KineticSensorP*/KineticSensorP$0$Timer0$startOneShot(uint32_t dt);
 # 63 "/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc"
 static void /*smartBraceletAppC.KineticSensorC.KineticSensorP*/KineticSensorP$0$Read$readDone(error_t result, /*smartBraceletAppC.KineticSensorC.KineticSensorP*/KineticSensorP$0$Read$val_t val);
 # 52 "/opt/tinyos-main-2.1.2/tos/interfaces/Random.nc"
 static uint16_t /*smartBraceletAppC.KineticSensorC.KineticSensorP*/KineticSensorP$0$Random$rand16(void );
-# 18 "KineticSensorP.nc"
-static inline error_t /*smartBraceletAppC.KineticSensorC.KineticSensorP*/KineticSensorP$0$Read$read(void );
-
-
-
-
-
+# 24 "KineticSensorP.nc"
 static inline void /*smartBraceletAppC.KineticSensorC.KineticSensorP*/KineticSensorP$0$Timer0$fired(void );
+# 73 "/opt/tinyos-main-2.1.2/tos/lib/timer/Timer.nc"
+static void /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Timer0$startOneShot(uint32_t dt);
+# 63 "/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc"
+static void /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Read$readDone(error_t result, /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Read$val_t val);
+# 52 "/opt/tinyos-main-2.1.2/tos/interfaces/Random.nc"
+static uint16_t /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Random$rand16(void );
+# 18 "SensorP.nc"
+static inline error_t /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Read$read(void );
+
+
+
+
+
+static inline void /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Timer0$fired(void );
 # 78 "/opt/tinyos-main-2.1.2/tos/lib/tossim/heap.c"
 static inline void init_heap(heap_t *heap)
 #line 78
@@ -6072,7 +6088,7 @@ static inline message_t *smartBraceletC$Receive$receive(message_t *buf, void *pa
 {
   my_msg_t *msg = (my_msg_t *)payload;
 
-  sim_log_debug(160U, "radio", "Packet received: {\n\tsnd=%u->rcv=%u\n\tkey=%s\n\ttype=%u\n\tpos=(%u, %u)\n\tkinematic status=%u\n}.\n", smartBraceletC$ReceivePacket$source(buf), smartBraceletC$ReceivePacket$destination(buf), msg->key, __nesc_ntoh_uint8(msg->msg_type.nxdata), __nesc_ntoh_uint16(msg->x.nxdata), __nesc_ntoh_uint16(msg->y.nxdata), __nesc_ntoh_uint8(msg->kinematic_status.nxdata));
+  sim_log_debug(159U, "radio", "Packet received: {\n\tsnd=%u->rcv=%u\n\tkey=%s\n\ttype=%u\n\tpos=(%u, %u)\n\tkinematic status=%u\n}.\n", smartBraceletC$ReceivePacket$source(buf), smartBraceletC$ReceivePacket$destination(buf), msg->key, __nesc_ntoh_uint8(msg->msg_type.nxdata), __nesc_ntoh_uint16(msg->x.nxdata), __nesc_ntoh_uint16(msg->y.nxdata), __nesc_ntoh_uint8(msg->kinematic_status.nxdata));
 
 
 
@@ -6082,20 +6098,19 @@ static inline message_t *smartBraceletC$Receive$receive(message_t *buf, void *pa
   else {
 #line 189
     if (__nesc_ntoh_uint8(msg->msg_type.nxdata) == 3) {
-        sim_log_debug(161U, "control", "Received Pairing Confirmation from other side\n");
+        sim_log_debug(160U, "control", "Received Pairing Confirmation from other side\n");
         smartBraceletC$handle_pairing(msg, buf, FALSE);
         smartBraceletC$MilliTimer$stop();
       }
     else {
-#line 194
       if (__nesc_ntoh_uint8(msg->msg_type.nxdata) == 2 && __nesc_ntoh_uint8(smartBraceletC$mode[sim_node()].nxdata) == 2 && smartBraceletC$ReceivePacket$source(buf) == smartBraceletC$pair_addr[sim_node()]) {
-          sim_log_debug(162U, "control", "Received Info from Child\n");
+          sim_log_debug(161U, "control", "Received Info from Child\n");
           smartBraceletC$handle_info(msg);
           smartBraceletC$Milli60Timer$startOneShot(60000);
         }
       }
     }
-#line 200
+#line 201
   return buf;
 }
 
@@ -6107,13 +6122,13 @@ static inline message_t *TossimActiveMessageC$Receive$default$receive(am_id_t id
 }
 
 # 78 "/opt/tinyos-main-2.1.2/tos/interfaces/Receive.nc"
-inline static message_t * TossimActiveMessageC$Receive$receive(am_id_t arg_0xb76a5ac8, message_t * msg, void * payload, uint8_t len){
+inline static message_t * TossimActiveMessageC$Receive$receive(am_id_t arg_0xb7691ac8, message_t * msg, void * payload, uint8_t len){
 #line 78
   nx_struct message_t *__nesc_result;
 #line 78
 
 #line 78
-  switch (arg_0xb76a5ac8) {
+  switch (arg_0xb7691ac8) {
 #line 78
     case 6:
 #line 78
@@ -6123,7 +6138,7 @@ inline static message_t * TossimActiveMessageC$Receive$receive(am_id_t arg_0xb76
 #line 78
     default:
 #line 78
-      __nesc_result = TossimActiveMessageC$Receive$default$receive(arg_0xb76a5ac8, msg, payload, len);
+      __nesc_result = TossimActiveMessageC$Receive$default$receive(arg_0xb7691ac8, msg, payload, len);
 #line 78
       break;
 #line 78
@@ -6163,13 +6178,13 @@ inline static void * smartBraceletC$Packet$getPayload(message_t * msg, uint8_t l
 }
 #line 126
 # 80 "/opt/tinyos-main-2.1.2/tos/interfaces/AMSend.nc"
-inline static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$AMSend$send(am_id_t arg_0xb7530730, am_addr_t addr, message_t * msg, uint8_t len){
+inline static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$AMSend$send(am_id_t arg_0xb75179f8, am_addr_t addr, message_t * msg, uint8_t len){
 #line 80
   unsigned char __nesc_result;
 #line 80
 
 #line 80
-  __nesc_result = TossimActiveMessageC$AMSend$send(arg_0xb7530730, addr, msg, len);
+  __nesc_result = TossimActiveMessageC$AMSend$send(arg_0xb75179f8, addr, msg, len);
 #line 80
 
 #line 80
@@ -6239,7 +6254,7 @@ uint8_t len)
   if (/*AMQueueP.AMQueueImplP*/AMQueueImplP$0$queue[sim_node()][clientId].msg != (void *)0) {
       return EBUSY;
     }
-  sim_log_debug(165U, "AMQueue", "AMQueue: request to send from %hhu (%p): passed checks\n", clientId, msg);
+  sim_log_debug(166U, "AMQueue", "AMQueue: request to send from %hhu (%p): passed checks\n", clientId, msg);
 
   /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$queue[sim_node()][clientId].msg = msg;
   /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Packet$setPayloadLength(msg, len);
@@ -6249,12 +6264,12 @@ uint8_t len)
       am_id_t amId = /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$AMPacket$type(msg);
       am_addr_t dest = /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$AMPacket$destination(msg);
 
-      sim_log_debug(166U, "AMQueue", "%s: request to send from %hhu (%p): queue empty\n", __FUNCTION__, clientId, msg);
+      sim_log_debug(167U, "AMQueue", "%s: request to send from %hhu (%p): queue empty\n", __FUNCTION__, clientId, msg);
       /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$current[sim_node()] = clientId;
 
       err = /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$AMSend$send(amId, dest, msg, len);
       if (err != SUCCESS) {
-          sim_log_debug(167U, "AMQueue", "%s: underlying send failed.\n", __FUNCTION__);
+          sim_log_debug(168U, "AMQueue", "%s: underlying send failed.\n", __FUNCTION__);
           /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$current[sim_node()] = 1;
           /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$queue[sim_node()][clientId].msg = (void *)0;
         }
@@ -6262,7 +6277,7 @@ uint8_t len)
       return err;
     }
   else {
-      sim_log_debug(168U, "AMQueue", "AMQueue: request to send from %hhu (%p): queue not empty\n", clientId, msg);
+      sim_log_debug(169U, "AMQueue", "AMQueue: request to send from %hhu (%p): queue not empty\n", clientId, msg);
     }
   return SUCCESS;
 }
@@ -6343,9 +6358,9 @@ inline static error_t smartBraceletC$AMSend$send(am_addr_t addr, message_t * msg
 }
 #line 80
 #line 110
-inline static void TossimActiveMessageC$AMSend$sendDone(am_id_t arg_0xb76a5108, message_t * msg, error_t error){
+inline static void TossimActiveMessageC$AMSend$sendDone(am_id_t arg_0xb7691108, message_t * msg, error_t error){
 #line 110
-  /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$AMSend$sendDone(arg_0xb76a5108, msg, error);
+  /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$AMSend$sendDone(arg_0xb7691108, msg, error);
 #line 110
 }
 #line 110
@@ -7255,13 +7270,13 @@ static inline message_t *TossimActiveMessageC$Snoop$default$receive(am_id_t id, 
 }
 
 # 78 "/opt/tinyos-main-2.1.2/tos/interfaces/Receive.nc"
-inline static message_t * TossimActiveMessageC$Snoop$receive(am_id_t arg_0xb76a2178, message_t * msg, void * payload, uint8_t len){
+inline static message_t * TossimActiveMessageC$Snoop$receive(am_id_t arg_0xb768e178, message_t * msg, void * payload, uint8_t len){
 #line 78
   nx_struct message_t *__nesc_result;
 #line 78
 
 #line 78
-    __nesc_result = TossimActiveMessageC$Snoop$default$receive(arg_0xb76a2178, msg, payload, len);
+    __nesc_result = TossimActiveMessageC$Snoop$default$receive(arg_0xb768e178, msg, payload, len);
 #line 78
 
 #line 78
@@ -7413,14 +7428,13 @@ static inline void smartBraceletC$SplitControl$startDone(error_t err)
     }
 
 
-
   if (err == SUCCESS) {
       __nesc_hton_uint8(smartBraceletC$mode[sim_node()].nxdata, 1);
       __nesc_hton_uint8(smartBraceletC$confirmation[sim_node()].nxdata, 0);
-      smartBraceletC$MilliTimer$startPeriodic(30000);
+      smartBraceletC$MilliTimer$startPeriodic(300);
     }
   else {
-#line 76
+#line 75
     smartBraceletC$SplitControl$start();
     }
 }
@@ -7440,9 +7454,9 @@ static inline void TossimPacketModelC$startDoneTask$runTask(void )
   TossimPacketModelC$Control$startDone(SUCCESS);
 }
 
-# 79 "smartBraceletC.nc"
+# 78 "smartBraceletC.nc"
 static inline void smartBraceletC$SplitControl$stopDone(error_t err)
-#line 79
+#line 78
 {
 }
 
@@ -7497,9 +7511,9 @@ static inline void /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Send$default$sendDone
 }
 
 # 100 "/opt/tinyos-main-2.1.2/tos/interfaces/Send.nc"
-inline static void /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Send$sendDone(uint8_t arg_0xb7533ca8, message_t * msg, error_t error){
+inline static void /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Send$sendDone(uint8_t arg_0xb7517010, message_t * msg, error_t error){
 #line 100
-  switch (arg_0xb7533ca8) {
+  switch (arg_0xb7517010) {
 #line 100
     case 0U:
 #line 100
@@ -7509,7 +7523,7 @@ inline static void /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Send$sendDone(uint8_t
 #line 100
     default:
 #line 100
-      /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Send$default$sendDone(arg_0xb7533ca8, msg, error);
+      /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Send$default$sendDone(arg_0xb7517010, msg, error);
 #line 100
       break;
 #line 100
@@ -7740,9 +7754,9 @@ static inline void SimSchedulerBasicP$TaskBasic$default$runTask(uint8_t id)
 }
 
 # 75 "/opt/tinyos-main-2.1.2/tos/interfaces/TaskBasic.nc"
-inline static void SimSchedulerBasicP$TaskBasic$runTask(uint8_t arg_0xb7861650){
+inline static void SimSchedulerBasicP$TaskBasic$runTask(uint8_t arg_0xb784d650){
 #line 75
-  switch (arg_0xb7861650) {
+  switch (arg_0xb784d650) {
 #line 75
     case TossimPacketModelC$startDoneTask:
 #line 75
@@ -7788,7 +7802,7 @@ inline static void SimSchedulerBasicP$TaskBasic$runTask(uint8_t arg_0xb7861650){
 #line 75
     default:
 #line 75
-      SimSchedulerBasicP$TaskBasic$default$runTask(arg_0xb7861650);
+      SimSchedulerBasicP$TaskBasic$default$runTask(arg_0xb784d650);
 #line 75
       break;
 #line 75
@@ -7796,66 +7810,36 @@ inline static void SimSchedulerBasicP$TaskBasic$runTask(uint8_t arg_0xb7861650){
 #line 75
 }
 #line 75
-# 112 "smartBraceletC.nc"
+# 111 "smartBraceletC.nc"
 static inline void smartBraceletC$MilliTimer$fired(void )
-#line 112
+#line 111
 {
   smartBraceletC$send_packet(AM_BROADCAST_ADDR, 1, 0, 0, 0);
 }
 
 # 73 "/opt/tinyos-main-2.1.2/tos/lib/timer/Timer.nc"
-inline static void /*smartBraceletAppC.PositionSensorC.PositionSensorP*/PositionSensorP$0$Timer0$startOneShot(uint32_t dt){
+inline static void /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Timer0$startOneShot(uint32_t dt){
 #line 73
-  /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$startOneShot(3U, dt);
-#line 73
-}
-#line 73
-# 13 "PositionSensorP.nc"
-static inline error_t /*smartBraceletAppC.PositionSensorC.PositionSensorP*/PositionSensorP$0$Read$read(void )
-#line 13
-{
-  /*smartBraceletAppC.PositionSensorC.PositionSensorP*/PositionSensorP$0$Timer0$startOneShot(10);
-  return SUCCESS;
-}
-
-# 55 "/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc"
-inline static error_t smartBraceletC$PositionRead$read(void ){
-#line 55
-  unsigned char __nesc_result;
-#line 55
-
-#line 55
-  __nesc_result = /*smartBraceletAppC.PositionSensorC.PositionSensorP*/PositionSensorP$0$Read$read();
-#line 55
-
-#line 55
-  return __nesc_result;
-#line 55
-}
-#line 55
-# 73 "/opt/tinyos-main-2.1.2/tos/lib/timer/Timer.nc"
-inline static void /*smartBraceletAppC.KineticSensorC.KineticSensorP*/KineticSensorP$0$Timer0$startOneShot(uint32_t dt){
-#line 73
-  /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$startOneShot(4U, dt);
+  /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$startOneShot(5U, dt);
 #line 73
 }
 #line 73
-# 18 "KineticSensorP.nc"
-static inline error_t /*smartBraceletAppC.KineticSensorC.KineticSensorP*/KineticSensorP$0$Read$read(void )
+# 18 "SensorP.nc"
+static inline error_t /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Read$read(void )
 #line 18
 {
-  /*smartBraceletAppC.KineticSensorC.KineticSensorP*/KineticSensorP$0$Timer0$startOneShot(10);
+  /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Timer0$startOneShot(10);
   return SUCCESS;
 }
 
 # 55 "/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc"
-inline static error_t smartBraceletC$KineticRead$read(void ){
+inline static error_t smartBraceletC$SensorRead$read(void ){
 #line 55
   unsigned char __nesc_result;
 #line 55
 
 #line 55
-  __nesc_result = /*smartBraceletAppC.KineticSensorC.KineticSensorP*/KineticSensorP$0$Read$read();
+  __nesc_result = /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Read$read();
 #line 55
 
 #line 55
@@ -7863,26 +7847,27 @@ inline static error_t smartBraceletC$KineticRead$read(void ){
 #line 55
 }
 #line 55
-# 116 "smartBraceletC.nc"
+# 115 "smartBraceletC.nc"
 static inline void smartBraceletC$Milli10Timer$fired(void )
-#line 116
+#line 115
 {
-  sim_log_debug(153U, "control", "Child timer fired\n");
-  smartBraceletC$KineticRead$read();
-  smartBraceletC$PositionRead$read();
+  sim_log_debug(152U, "control", "Child timer fired\n");
+
+
+  smartBraceletC$SensorRead$read();
 }
 
 static inline void smartBraceletC$Milli60Timer$fired(void )
 #line 122
 {
-  sim_log_debug(154U, "control", "MISSING ALERT! LAST KNOWN POSITION: x=%u,y=%u,kinematic_status=%u\n", __nesc_ntoh_uint16(smartBraceletC$x[sim_node()].nxdata), __nesc_ntoh_uint16(smartBraceletC$y[sim_node()].nxdata), __nesc_ntoh_uint8(smartBraceletC$kinematic_status[sim_node()].nxdata));
+  sim_log_debug(153U, "control", "MISSING ALERT! LAST KNOWN POSITION: x=%u,y=%u,kinematic_status=%u\n", __nesc_ntoh_uint16(smartBraceletC$x[sim_node()].nxdata), __nesc_ntoh_uint16(smartBraceletC$y[sim_node()].nxdata), __nesc_ntoh_uint8(smartBraceletC$kinematic_status[sim_node()].nxdata));
 }
 
-#line 209
+#line 210
 static inline void smartBraceletC$PositionRead$readDone(error_t result, pos_t data)
-#line 209
+#line 210
 {
-  sim_log_debug(164U, "app_kin_sensor", "POSITION: (x=%u, y=%u)\n", __nesc_ntoh_uint16(data.x.nxdata), __nesc_ntoh_uint16(data.y.nxdata));
+  sim_log_debug(163U, "app_kin_sensor", "POSITION: (x=%u, y=%u)\n", __nesc_ntoh_uint16(data.x.nxdata), __nesc_ntoh_uint16(data.y.nxdata));
 }
 
 # 63 "/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc"
@@ -7924,15 +7909,15 @@ static inline void /*smartBraceletAppC.PositionSensorC.PositionSensorP*/Position
   __nesc_hton_uint16(position.x.nxdata, /*smartBraceletAppC.PositionSensorC.PositionSensorP*/PositionSensorP$0$Random$rand16());
   __nesc_hton_uint16(position.y.nxdata, /*smartBraceletAppC.PositionSensorC.PositionSensorP*/PositionSensorP$0$Random$rand16());
 
-  sim_log_debug(197U, "position_sensor", "POSITION READ: {x=%d, y=%d}\n", __nesc_ntoh_uint16(position.x.nxdata), __nesc_ntoh_uint16(position.y.nxdata));
+  sim_log_debug(198U, "position_sensor", "POSITION READ: {x=%d, y=%d}\n", __nesc_ntoh_uint16(position.x.nxdata), __nesc_ntoh_uint16(position.y.nxdata));
   /*smartBraceletAppC.PositionSensorC.PositionSensorP*/PositionSensorP$0$Read$readDone(SUCCESS, position);
 }
 
-# 205 "smartBraceletC.nc"
+# 206 "smartBraceletC.nc"
 static inline void smartBraceletC$KineticRead$readDone(error_t result, kinematic_status_t data)
-#line 205
+#line 206
 {
-  sim_log_debug(163U, "app_kin_sensor", "KINEMATIC STATUS: %d\n", data);
+  sim_log_debug(162U, "app_kin_sensor", "KINEMATIC STATUS: %d\n", data);
 }
 
 # 63 "/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc"
@@ -7968,7 +7953,7 @@ static inline void /*smartBraceletAppC.KineticSensorC.KineticSensorP*/KineticSen
   uint16_t num;
 
   num = /*smartBraceletAppC.KineticSensorC.KineticSensorP*/KineticSensorP$0$Random$rand16();
-  sim_log_debug(198U, "kinetic_sensor", "RANDOM VALUE READY: %d", num);
+  sim_log_debug(199U, "kinetic_sensor", "RANDOM VALUE READY: %d\n", num);
 
   status = 3;
   if (0 <= num && num <= 19660u) {
@@ -7987,8 +7972,81 @@ static inline void /*smartBraceletAppC.KineticSensorC.KineticSensorP*/KineticSen
       }
     }
 #line 43
-  sim_log_debug(199U, "kinetic_sensor", "VALUE READ: %d\n", status);
+  sim_log_debug(200U, "kinetic_sensor", "VALUE READ: %d\n", status);
   /*smartBraceletAppC.KineticSensorC.KineticSensorP*/KineticSensorP$0$Read$readDone(SUCCESS, status);
+}
+
+# 214 "smartBraceletC.nc"
+static inline void smartBraceletC$SensorRead$readDone(error_t result, sensor_data_t data)
+#line 214
+{
+  if (smartBraceletC$role[sim_node()] != 1) {
+#line 215
+    return;
+    }
+  if (result != SUCCESS) {
+      sim_log_debug(164U, "app_sensor", "Error in reading sensor data. \n");
+      return;
+    }
+
+  sim_log_debug(165U, "app_sensor", "Data received from sensor: {\n\tkinetic_status=%u\n\tposition=(x=%u, y=%u)\n}\n", data.kinematic_status, __nesc_ntoh_uint16(data.x.nxdata), __nesc_ntoh_uint16(data.y.nxdata));
+  smartBraceletC$send_packet(smartBraceletC$pair_addr[sim_node()], 2, __nesc_ntoh_uint16(data.x.nxdata), __nesc_ntoh_uint16(data.y.nxdata), data.kinematic_status);
+}
+
+# 63 "/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc"
+inline static void /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Read$readDone(error_t result, /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Read$val_t val){
+#line 63
+  smartBraceletC$SensorRead$readDone(result, val);
+#line 63
+}
+#line 63
+# 52 "/opt/tinyos-main-2.1.2/tos/interfaces/Random.nc"
+inline static uint16_t /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Random$rand16(void ){
+#line 52
+  unsigned short __nesc_result;
+#line 52
+
+#line 52
+  __nesc_result = RandomMlcgC$Random$rand16();
+#line 52
+
+#line 52
+  return __nesc_result;
+#line 52
+}
+#line 52
+# 24 "SensorP.nc"
+static inline void /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Timer0$fired(void )
+#line 24
+{
+
+
+
+  sensor_data_t data;
+  uint16_t num = /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Random$rand16();
+
+  data.kinematic_status = 3;
+  if (0 <= num && num <= 19660u) {
+      data.kinematic_status = 0;
+    }
+  else {
+#line 34
+    if (19660u < num && num <= 39321u) {
+        data.kinematic_status = 1;
+      }
+    else {
+#line 36
+      if (39321u < num && num <= 58981u) {
+          data.kinematic_status = 2;
+        }
+      }
+    }
+#line 40
+  __nesc_hton_uint16(data.x.nxdata, /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Random$rand16());
+  __nesc_hton_uint16(data.y.nxdata, /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Random$rand16());
+
+  sim_log_debug(201U, "complete_sensor", "DATA READ: {\n\tkinematic_status=%u\n\tposition=(x=%u, y=%u)\n}\n", data.kinematic_status, __nesc_ntoh_uint16(data.x.nxdata), __nesc_ntoh_uint16(data.y.nxdata));
+  /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Read$readDone(SUCCESS, data);
 }
 
 # 204 "/opt/tinyos-main-2.1.2/tos/lib/timer/VirtualizeTimerC.nc"
@@ -7997,9 +8055,9 @@ static inline void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$d
 }
 
 # 83 "/opt/tinyos-main-2.1.2/tos/lib/timer/Timer.nc"
-inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$fired(uint8_t arg_0xb73b13a8){
+inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$fired(uint8_t arg_0xb7398c70){
 #line 83
-  switch (arg_0xb73b13a8) {
+  switch (arg_0xb7398c70) {
 #line 83
     case 0U:
 #line 83
@@ -8031,9 +8089,15 @@ inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$f
 #line 83
       break;
 #line 83
+    case 5U:
+#line 83
+      /*smartBraceletAppC.SensorC.SensorP*/SensorP$0$Timer0$fired();
+#line 83
+      break;
+#line 83
     default:
 #line 83
-      /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$default$fired(arg_0xb73b13a8);
+      /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$default$fired(arg_0xb7398c70);
 #line 83
       break;
 #line 83
@@ -8107,7 +8171,7 @@ static inline void /*AlarmCounterMilliP.Atm128AlarmAsyncC.Atm128AlarmAsyncP*/Atm
 static inline void HplAtm128Timer0AsyncP$cancel_compare(void )
 #line 577
 {
-  sim_log_debug(196U, "HplAtm128CompareC", "Cancelling compare at 0x%p\n", HplAtm128Timer0AsyncP$compare[sim_node()]);
+  sim_log_debug(197U, "HplAtm128CompareC", "Cancelling compare at 0x%p\n", HplAtm128Timer0AsyncP$compare[sim_node()]);
   if (HplAtm128Timer0AsyncP$compare[sim_node()] != (void *)0) {
       HplAtm128Timer0AsyncP$compare[sim_node()]->cancelled = 1;
       HplAtm128Timer0AsyncP$compare[sim_node()]->cleanup = sim_queue_cleanup_total;
@@ -8136,7 +8200,7 @@ static inline void HplAtm128Timer0AsyncP$cancel_overflow(void )
 {
   if (HplAtm128Timer0AsyncP$overflow[sim_node()] != (void *)0) {
       HplAtm128Timer0AsyncP$overflow[sim_node()]->cancelled = 1;
-      sim_log_debug(195U, "HplAtm128Timer0AsyncP", "Cancelling overflow %p.\n", HplAtm128Timer0AsyncP$overflow[sim_node()]);
+      sim_log_debug(196U, "HplAtm128Timer0AsyncP", "Cancelling overflow %p.\n", HplAtm128Timer0AsyncP$overflow[sim_node()]);
       HplAtm128Timer0AsyncP$overflow[sim_node()]->cleanup = sim_queue_cleanup_total;
     }
 }
@@ -8151,11 +8215,11 @@ static inline void HplAtm128Timer0AsyncP$timer0_overflow_handle(sim_event_t *evt
   else {
       if ((atm128RegFile[sim_node()][ATM128_TIMSK] & (1 << TOIE0)) != 0) {
           atm128RegFile[sim_node()][ATM128_TIFR] &= ~(1 << TOV0);
-          sim_log_debug(192U, "HplAtm128Timer0AsyncP", "Overflow interrupt at %s\n", sim_time_string());
+          sim_log_debug(193U, "HplAtm128Timer0AsyncP", "Overflow interrupt at %s\n", sim_time_string());
           INTERRUPT_16();
         }
       else {
-          sim_log_debug(193U, "HplAtm128Timer0AsyncP", "Setting overflow bit at %s\n", sim_time_string());
+          sim_log_debug(194U, "HplAtm128Timer0AsyncP", "Setting overflow bit at %s\n", sim_time_string());
           atm128RegFile[sim_node()][ATM128_TIFR] |= 1 << TOV0;
         }
       HplAtm128Timer0AsyncP$configure_overflow(evt);
@@ -8205,7 +8269,7 @@ static inline void HplAtm128Timer0AsyncP$Timer0$set(uint8_t newVal)
   uint8_t curVal = HplAtm128Timer0AsyncP$Timer0$get();
 
 #line 299
-  sim_log_debug(185U, "HplAtm128Timer0AsyncP", "HplAtm128Timer0AsyncP: Setting timer: %hhu\n", newVal);
+  sim_log_debug(186U, "HplAtm128Timer0AsyncP", "HplAtm128Timer0AsyncP: Setting timer: %hhu\n", newVal);
   if (newVal == curVal) {
       return;
     }
@@ -8232,7 +8296,7 @@ static inline void HplAtm128Timer0AsyncP$Timer0$set(uint8_t newVal)
 static inline void HplAtm128Timer0AsyncP$timer0_compare_handle(sim_event_t *evt)
 #line 187
 {
-  sim_log_debug(175U, "HplAtm128Timer0AsyncP", "Beginning compare 0x%p at %s\n", evt, sim_time_string());
+  sim_log_debug(176U, "HplAtm128Timer0AsyncP", "Beginning compare 0x%p at %s\n", evt, sim_time_string());
   if (evt->cancelled) {
       return;
     }
@@ -8241,21 +8305,21 @@ static inline void HplAtm128Timer0AsyncP$timer0_compare_handle(sim_event_t *evt)
 
 #line 194
       sim_print_now(timeStr, 128);
-      sim_log_debug(176U, "HplAtm128Timer0AsyncP", "Handling compare at 0x%p @ %s\n", evt, sim_time_string());
+      sim_log_debug(177U, "HplAtm128Timer0AsyncP", "Handling compare at 0x%p @ %s\n", evt, sim_time_string());
 
       if ((atm128RegFile[sim_node()][ATM128_TCCR0] & (1 << WGM01)) != 0 && !((atm128RegFile[sim_node()][ATM128_TCCR0] & (1 << WGM00)) != 0)) {
-          sim_log_debug(177U, "HplAtm128Timer0AsyncP", "%s: CTC is set, clear timer.\n", __FUNCTION__);
+          sim_log_debug(178U, "HplAtm128Timer0AsyncP", "%s: CTC is set, clear timer.\n", __FUNCTION__);
           HplAtm128Timer0AsyncP$Timer0$set(0);
         }
       else {
-          sim_log_debug(178U, "HplAtm128Timer0AsyncP", "%s: TCCR is 0x%hhx, %i, %i\n", __FUNCTION__, * (volatile uint8_t *)&atm128RegFile[sim_node()][0x33], (int )((atm128RegFile[sim_node()][ATM128_TCCR0] & (1 << WGM01)) != 0), (int )((atm128RegFile[sim_node()][ATM128_TCCR0] & (1 << WGM00)) != 0));
+          sim_log_debug(179U, "HplAtm128Timer0AsyncP", "%s: TCCR is 0x%hhx, %i, %i\n", __FUNCTION__, * (volatile uint8_t *)&atm128RegFile[sim_node()][0x33], (int )((atm128RegFile[sim_node()][ATM128_TCCR0] & (1 << WGM01)) != 0), (int )((atm128RegFile[sim_node()][ATM128_TCCR0] & (1 << WGM00)) != 0));
         }
 
       if ((atm128RegFile[sim_node()][ATM128_TIMSK] & (1 << OCIE0)) != 0) {
-          sim_log_debug(179U, "HplAtm128Timer0AsyncP", "TIFR is %hhx\n", * (volatile uint8_t *)&atm128RegFile[sim_node()][0x36]);
-          atm128RegFile[sim_node()][ATM128_TIFR] &= ~(1 << OCF0);
           sim_log_debug(180U, "HplAtm128Timer0AsyncP", "TIFR is %hhx\n", * (volatile uint8_t *)&atm128RegFile[sim_node()][0x36]);
-          sim_log_debug(181U, "HplAtm128Timer0AsyncP", "Compare interrupt @ %s\n", timeStr);
+          atm128RegFile[sim_node()][ATM128_TIFR] &= ~(1 << OCF0);
+          sim_log_debug(181U, "HplAtm128Timer0AsyncP", "TIFR is %hhx\n", * (volatile uint8_t *)&atm128RegFile[sim_node()][0x36]);
+          sim_log_debug(182U, "HplAtm128Timer0AsyncP", "Compare interrupt @ %s\n", timeStr);
           INTERRUPT_15();
         }
       else {
@@ -8275,7 +8339,7 @@ static inline sim_event_t *HplAtm128Timer0AsyncP$allocate_compare(void )
   sim_event_t *newEvent = sim_queue_allocate_event();
 
 #line 225
-  sim_log_debug(182U, "HplAtm128Timer0AsyncP", "Allocated compare at 0x%p\n", newEvent);
+  sim_log_debug(183U, "HplAtm128Timer0AsyncP", "Allocated compare at 0x%p\n", newEvent);
   newEvent->handle = HplAtm128Timer0AsyncP$timer0_compare_handle;
   newEvent->cleanup = sim_queue_cleanup_none;
   return newEvent;
@@ -8583,7 +8647,7 @@ inline static void /*AlarmCounterMilliP.Atm128AlarmAsyncC.Atm128AlarmAsyncP*/Atm
 static inline void HplAtm128Timer0AsyncP$Timer0Ctrl$setControl(Atm128TimerControl_t x)
 #line 364
 {
-  sim_log_debug(187U, "HplAtm128Timer0AsyncP", "Setting control to be 0x%hhx\n", x.flat);
+  sim_log_debug(188U, "HplAtm128Timer0AsyncP", "Setting control to be 0x%hhx\n", x.flat);
   * (volatile uint8_t *)&atm128RegFile[sim_node()][0x33] = x.flat;
 }
 
@@ -8652,6 +8716,8 @@ inline static error_t SimMainP$SoftwareInit$init(void ){
 #line 62
   __nesc_result = ecombine(__nesc_result, RandomMlcgC$Init$init());
 #line 62
+  __nesc_result = ecombine(__nesc_result, RandomMlcgC$Init$init());
+#line 62
   __nesc_result = ecombine(__nesc_result, /*AlarmCounterMilliP.Atm128AlarmAsyncC.Atm128AlarmAsyncP*/Atm128AlarmAsyncP$0$Init$init());
 #line 62
   __nesc_result = ecombine(__nesc_result, TossimPacketModelC$Init$init());
@@ -8662,15 +8728,14 @@ inline static error_t SimMainP$SoftwareInit$init(void ){
 #line 62
 }
 #line 62
-# 52 "smartBraceletC.nc"
+# 53 "smartBraceletC.nc"
 static inline void smartBraceletC$Boot$booted(void )
-#line 52
+#line 53
 {
-  sim_log_debug(148U, "boot", "Application booted.\n");
   smartBraceletC$SplitControl$start();
 
   strcpy(smartBraceletC$key[sim_node()], KEYS[(TOS_NODE_ID - 1) / 2]);
-  sim_log_debug(149U, "control", "key assigned: %s\n", smartBraceletC$key[sim_node()]);
+  sim_log_debug(148U, "boot", "Application booted with key %s.\n", smartBraceletC$key[sim_node()]);
 }
 
 # 60 "/opt/tinyos-main-2.1.2/tos/interfaces/Boot.nc"
@@ -10245,9 +10310,9 @@ static void smartBraceletC$handle_pairing(my_msg_t *received, message_t *rcv, bo
   if (answer && smartBraceletC$pair_addr[sim_node()] == AM_BROADCAST_ADDR) {
       if (strcmp(smartBraceletC$key[sim_node()], received->key) == 0) {
           smartBraceletC$pair_addr[sim_node()] = smartBraceletC$ReceivePacket$source(rcv);
-          sim_log_debug(157U, "control", "PAIRING WITH: %u\n", smartBraceletC$pair_addr[sim_node()]);
+          sim_log_debug(156U, "control", "PAIRING WITH: %u\n", smartBraceletC$pair_addr[sim_node()]);
           (__nesc_temp42 = smartBraceletC$confirmation[sim_node()].nxdata, __nesc_hton_uint8(__nesc_temp42, (__nesc_temp43 = __nesc_ntoh_uint8(__nesc_temp42)) + 1), __nesc_temp43);
-          sim_log_debug(158U, "control", "Confirmation for PAIREND sent, count: %u\n", __nesc_ntoh_uint8(smartBraceletC$confirmation[sim_node()].nxdata));
+          sim_log_debug(157U, "control", "Confirmation for PAIREND sent, count: %u\n", __nesc_ntoh_uint8(smartBraceletC$confirmation[sim_node()].nxdata));
           smartBraceletC$send_packet(smartBraceletC$pair_addr[sim_node()], 3, 0, 0, 0);
           smartBraceletC$isPairingDone(__nesc_ntoh_uint8(smartBraceletC$confirmation[sim_node()].nxdata));
         }
@@ -10256,26 +10321,26 @@ static void smartBraceletC$handle_pairing(my_msg_t *received, message_t *rcv, bo
 #line 163
     if (!answer && smartBraceletC$pair_addr[sim_node()] != TOS_NODE_ID) {
         (__nesc_temp44 = smartBraceletC$confirmation[sim_node()].nxdata, __nesc_hton_uint8(__nesc_temp44, (__nesc_temp45 = __nesc_ntoh_uint8(__nesc_temp44)) + 1), __nesc_temp45);
-        sim_log_debug(159U, "control", "Confirmation for PAIREND received, count: %u\n", __nesc_ntoh_uint8(smartBraceletC$confirmation[sim_node()].nxdata));
+        sim_log_debug(158U, "control", "Confirmation for PAIREND received, count: %u\n", __nesc_ntoh_uint8(smartBraceletC$confirmation[sim_node()].nxdata));
         smartBraceletC$isPairingDone(__nesc_ntoh_uint8(smartBraceletC$confirmation[sim_node()].nxdata));
       }
     }
 }
 
-#line 83
+#line 82
 static void smartBraceletC$send_packet(am_addr_t dest, uint8_t type, uint16_t pos_x, uint16_t pos_y, uint8_t kin_status)
-#line 83
+#line 82
 {
   my_msg_t *msg;
 
   if (smartBraceletC$locked[sim_node()]) {
-      sim_log_debug(150U, "radio", "Radio locked. Skipping signaling packet. \n");
+      sim_log_debug(149U, "radio", "Radio locked. Skipping signaling packet. \n");
       return;
     }
 
   msg = (my_msg_t *)smartBraceletC$Packet$getPayload(&smartBraceletC$packet[sim_node()], sizeof(my_msg_t ));
   if (msg == (void *)0) {
-#line 92
+#line 91
     return;
     }
 
@@ -10286,12 +10351,12 @@ static void smartBraceletC$send_packet(am_addr_t dest, uint8_t type, uint16_t po
   strcpy(msg->key, smartBraceletC$key[sim_node()]);
 
   if (smartBraceletC$AMSend$send(dest, &smartBraceletC$packet[sim_node()], sizeof(my_msg_t )) == SUCCESS) {
-      sim_log_debug(151U, "radio", "packet sent: {\n\tsnd=%u->rcv=%u\n\tkey=%s\n\ttype=%u\n\tpos=(%u, %u)\n\tkinematic status=%u\n}.\n", smartBraceletC$SendPacket$source(&smartBraceletC$packet[sim_node()]), smartBraceletC$SendPacket$destination(&smartBraceletC$packet[sim_node()]), msg->key, __nesc_ntoh_uint8(msg->msg_type.nxdata), __nesc_ntoh_uint16(msg->x.nxdata), __nesc_ntoh_uint16(msg->y.nxdata), __nesc_ntoh_uint8(msg->kinematic_status.nxdata));
+      sim_log_debug(150U, "radio", "packet sent: {\n\tsnd=%u->rcv=%u\n\tkey=%s\n\ttype=%u\n\tpos=(%u, %u)\n\tkinematic status=%u\n}.\n", smartBraceletC$SendPacket$source(&smartBraceletC$packet[sim_node()]), smartBraceletC$SendPacket$destination(&smartBraceletC$packet[sim_node()]), msg->key, __nesc_ntoh_uint8(msg->msg_type.nxdata), __nesc_ntoh_uint16(msg->x.nxdata), __nesc_ntoh_uint16(msg->y.nxdata), __nesc_ntoh_uint8(msg->kinematic_status.nxdata));
 
 
 
       smartBraceletC$locked[sim_node()] = TRUE;
-      sim_log_debug(152U, "radio", "radio locked.\n");
+      sim_log_debug(151U, "radio", "radio locked.\n");
     }
 }
 
@@ -10371,7 +10436,7 @@ static void /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$AMSend$sendDone(am_id_t id, 
       /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$sendDone(/*AMQueueP.AMQueueImplP*/AMQueueImplP$0$current[sim_node()], msg, err);
     }
   else {
-      sim_log_debug(169U, "PointerBug", "%s received send done for %p, signaling for %p.\n", __FUNCTION__, msg, /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$queue[sim_node()][/*AMQueueP.AMQueueImplP*/AMQueueImplP$0$current[sim_node()]].msg);
+      sim_log_debug(170U, "PointerBug", "%s received send done for %p, signaling for %p.\n", __FUNCTION__, msg, /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$queue[sim_node()][/*AMQueueP.AMQueueImplP*/AMQueueImplP$0$current[sim_node()]].msg);
     }
 }
 
@@ -10439,7 +10504,7 @@ static void smartBraceletC$AMSend$sendDone(message_t *buf, error_t err)
 #line 131
     return;
     }
-  sim_log_debug(155U, "radio", "Packet sent successfully. \n");
+  sim_log_debug(154U, "radio", "Packet sent successfully. \n");
 }
 
 # 248 "/opt/tinyos-main-2.1.2/tos/lib/tossim/CpmModelC.nc"
@@ -10497,7 +10562,7 @@ static void smartBraceletC$isPairingDone(__nesc_nxbase_nx_uint8_t conf)
 #line 136
 {
   if (conf == 2) {
-      sim_log_debug(156U, "control", "Ending Pairing phase, going into Operation mode\n");
+      sim_log_debug(155U, "control", "Ending Pairing phase, going into Operation mode\n");
       __nesc_hton_uint8(smartBraceletC$mode[sim_node()].nxdata, 2);
       if (smartBraceletC$role[sim_node()] == 0) {
           smartBraceletC$Milli60Timer$startOneShot(60000);
@@ -10563,7 +10628,7 @@ static uint8_t HplAtm128Timer0AsyncP$Timer0$get(void )
   elapsed = HplAtm128Timer0AsyncP$sim_to_clock(elapsed);
   elapsed = elapsed >> HplAtm128Timer0AsyncP$shiftFromScale();
   rval = (uint8_t )(elapsed & 0xff);
-  sim_log_debug(184U, "HplAtm128Timer0AsyncP", "HplAtm128Timer0AsyncP: Getting timer: %hhu\n", rval);
+  sim_log_debug(185U, "HplAtm128Timer0AsyncP", "HplAtm128Timer0AsyncP: Getting timer: %hhu\n", rval);
   return rval;
 }
 
@@ -10642,7 +10707,7 @@ static Atm128_TIFR_t HplAtm128Timer0AsyncP$Timer0Ctrl$getInterruptFlag(void )
 static uint8_t HplAtm128Timer0AsyncP$Compare$get(void )
 #line 457
 {
-  sim_log_debug(190U, "HplAtm128Timer0AsyncP", "HplAtm128Timer0AsyncP: Getting compare: %hhu\n", * (volatile uint8_t *)&atm128RegFile[sim_node()][0x31]);
+  sim_log_debug(191U, "HplAtm128Timer0AsyncP", "HplAtm128Timer0AsyncP: Getting compare: %hhu\n", * (volatile uint8_t *)&atm128RegFile[sim_node()][0x31]);
   return * (volatile uint8_t *)&atm128RegFile[sim_node()][0x31];
 }
 
@@ -10846,13 +10911,13 @@ static void /*AlarmCounterMilliP.Atm128AlarmAsyncC.Atm128AlarmAsyncP*/Atm128Alar
       uint8_t tifr = (uint8_t )/*AlarmCounterMilliP.Atm128AlarmAsyncC.Atm128AlarmAsyncP*/Atm128AlarmAsyncP$0$TimerCtrl$getInterruptFlag().flat;
 
 #line 101
-      sim_log_debug(170U, "Atm128AlarmAsyncP", "Atm128AlarmAsyncP: TIFR is %hhx\n", tifr);
+      sim_log_debug(171U, "Atm128AlarmAsyncP", "Atm128AlarmAsyncP: TIFR is %hhx\n", tifr);
       if ((interrupt_in != 0 && interrupt_in < /*AlarmCounterMilliP.Atm128AlarmAsyncC.Atm128AlarmAsyncP*/Atm128AlarmAsyncP$0$MINDT) || tifr & (1 << OCF0)) {
           if (interrupt_in < /*AlarmCounterMilliP.Atm128AlarmAsyncC.Atm128AlarmAsyncP*/Atm128AlarmAsyncP$0$MINDT) {
-              sim_log_debug(171U, "Atm128AlarmAsyncP", "Atm128AlarmAsyncP: under min: %hhu.\n", interrupt_in);
+              sim_log_debug(172U, "Atm128AlarmAsyncP", "Atm128AlarmAsyncP: under min: %hhu.\n", interrupt_in);
             }
           else {
-              sim_log_debug(172U, "Atm128AlarmAsyncP", "Atm128AlarmAsyncP: OCF set.\n");
+              sim_log_debug(173U, "Atm128AlarmAsyncP", "Atm128AlarmAsyncP: OCF set.\n");
             }
           {
 #line 109
@@ -10864,14 +10929,14 @@ static void /*AlarmCounterMilliP.Atm128AlarmAsyncC.Atm128AlarmAsyncP*/Atm128Alar
 
       if (!/*AlarmCounterMilliP.Atm128AlarmAsyncC.Atm128AlarmAsyncP*/Atm128AlarmAsyncP$0$set[sim_node()]) {
           newOcr0 = /*AlarmCounterMilliP.Atm128AlarmAsyncC.Atm128AlarmAsyncP*/Atm128AlarmAsyncP$0$MAXT;
-          sim_log_debug(173U, "Atm128AlarmAsyncP", "Atm128AlarmAsyncP: no alarm set, set at max.\n");
+          sim_log_debug(174U, "Atm128AlarmAsyncP", "Atm128AlarmAsyncP: no alarm set, set at max.\n");
         }
       else 
         {
           uint32_t now = /*AlarmCounterMilliP.Atm128AlarmAsyncC.Atm128AlarmAsyncP*/Atm128AlarmAsyncP$0$Counter$get();
 
 #line 120
-          sim_log_debug(174U, "Atm128AlarmAsyncP", "Atm128AlarmAsyncP: now-t0 = %llu, dt = %llu\n", now - /*AlarmCounterMilliP.Atm128AlarmAsyncC.Atm128AlarmAsyncP*/Atm128AlarmAsyncP$0$t0[sim_node()], /*AlarmCounterMilliP.Atm128AlarmAsyncC.Atm128AlarmAsyncP*/Atm128AlarmAsyncP$0$dt[sim_node()]);
+          sim_log_debug(175U, "Atm128AlarmAsyncP", "Atm128AlarmAsyncP: now-t0 = %llu, dt = %llu\n", now - /*AlarmCounterMilliP.Atm128AlarmAsyncC.Atm128AlarmAsyncP*/Atm128AlarmAsyncP$0$t0[sim_node()], /*AlarmCounterMilliP.Atm128AlarmAsyncC.Atm128AlarmAsyncP*/Atm128AlarmAsyncP$0$dt[sim_node()]);
 
           if ((uint32_t )(now - /*AlarmCounterMilliP.Atm128AlarmAsyncC.Atm128AlarmAsyncP*/Atm128AlarmAsyncP$0$t0[sim_node()]) >= /*AlarmCounterMilliP.Atm128AlarmAsyncC.Atm128AlarmAsyncP*/Atm128AlarmAsyncP$0$dt[sim_node()]) 
             {
@@ -10915,7 +10980,7 @@ static void /*AlarmCounterMilliP.Atm128AlarmAsyncC.Atm128AlarmAsyncP*/Atm128Alar
 static void HplAtm128Timer0AsyncP$Compare$set(uint8_t t)
 #line 463
 {
-  sim_log_debug(191U, "HplAtm128Timer0AsyncP", "HplAtm128Timer0AsyncP: Setting compare: %hhu\n", t);
+  sim_log_debug(192U, "HplAtm128Timer0AsyncP", "HplAtm128Timer0AsyncP: Setting compare: %hhu\n", t);
   /* atomic removed: atomic calls only */
 #line 465
   {
@@ -10996,7 +11061,7 @@ static void HplAtm128Timer0AsyncP$configure_overflow(sim_event_t *evt)
   overflowTime += sim_time();
   overflowTime -= (sim_time() - HplAtm128Timer0AsyncP$last_zero()) % (1 << HplAtm128Timer0AsyncP$shiftFromScale());
 
-  sim_log_debug(194U, "HplAtm128Timer0AsyncP", "Scheduling new overflow for %i at time %llu\n", sim_node(), overflowTime);
+  sim_log_debug(195U, "HplAtm128Timer0AsyncP", "Scheduling new overflow for %i at time %llu\n", sim_node(), overflowTime);
 
   evt->time = overflowTime;
 }
@@ -11043,7 +11108,7 @@ static void HplAtm128Timer0AsyncP$configure_compare(sim_event_t *evt)
   phaseOffset %= HplAtm128Timer0AsyncP$clock_to_sim(1 << HplAtm128Timer0AsyncP$shiftFromScale());
   compareTime -= phaseOffset;
 
-  sim_log_debug(183U, "HplAtm128Timer0AsyncP", "Configuring new compare of %i for %i at time %llu  (@ %llu)\n", (int )compareVal, sim_node(), compareTime, sim_time());
+  sim_log_debug(184U, "HplAtm128Timer0AsyncP", "Configuring new compare of %i for %i at time %llu  (@ %llu)\n", (int )compareVal, sim_node(), compareTime, sim_time());
 
   evt->time = compareTime;
 }
@@ -11716,6 +11781,8 @@ static int __nesc_nido_resolve(int __nesc_mote,
 
   /* Module KineticSensorP$0 */
 
+  /* Module SensorP$0 */
+
   return -1;
 }
 /* Invoke static initialisers for mote '__nesc_mote' */
@@ -11941,5 +12008,7 @@ static void __nesc_nido_initialise(int __nesc_mote)
   /* Module PositionSensorP$0 */
 
   /* Module KineticSensorP$0 */
+
+  /* Module SensorP$0 */
 
 }

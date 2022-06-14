@@ -21,6 +21,9 @@ implementation {
   // Sensor used to read the kinetic status of the bracelet.
   // INTERFACES: Read
   components new KineticSensorC();
+  
+  // Sensor used to read the kinematic status and the position of the bracelet. 
+  components new SensorC(); 
 
 /****** INTERFACES *****/
   //Boot interface
@@ -48,4 +51,5 @@ implementation {
   // Sensor read
   App.PositionRead -> PositionSensorC;
   App.KineticRead -> KineticSensorC;
+  App.SensorRead -> SensorC; 
 }
