@@ -1,3 +1,4 @@
+#include "sb_serial.h"
 #include "smartBracelet.h"
 
 configuration smartBraceletAppC {}
@@ -13,6 +14,7 @@ implementation {
   components new TimerMilliC() as Timer10MilliC;
   components new TimerMilliC() as Timer60MilliC;
   components ActiveMessageC;
+  components SerialActiveMessageC as SerialAM; 
 
   // Sensor used to read the position of the bracelet.
   // INTERFACES: Read
@@ -39,9 +41,13 @@ implementation {
 
   //Interfaces to access package fields
   App.Packet -> AMSenderC;
-  // App.AMPacket -> ActiveMessageC;
   App.ReceivePacket -> AMReceiverC; 
-  App.SendPacket -> AMSenderC; 
+  App.SendPacket -> AMSenderC;
+  
+  // Serial communication
+  App.SerialSend -> SerialAM.AMSend[AM_SERIAL_MSG];
+  App.SerialPacket -> SerialAM; 
+  App.SerialSC -> SerialAM; 
 
   //Timer interface
   App.MilliTimer -> TimerMilliC;

@@ -1,3 +1,4 @@
+#include "sb_serial.h"
 #include "smartBracelet.h"
 #include "Timer.h"
 #include "string.h"
@@ -18,6 +19,11 @@ module smartBraceletC {
 	interface Packet;
     interface AMPacket as SendPacket;
 	interface AMPacket as ReceivePacket;
+	
+	// interfaces for serial port
+	interface AMSend as SerialSend;
+	interface Packet as SerialPacket;  
+	interface SplitControl as SerialSC; 
 
 	// interface for timer
 	interface Timer<TMilli> as MilliTimer;      // Timer used for pairing
@@ -38,6 +44,9 @@ module smartBraceletC {
   	message_t packet;
   	am_addr_t pair_addr = AM_BROADCAST_ADDR;
   	bool locked = FALSE;
+  	
+  	message_t serial_packet; 
+  	bool serial_locked = FALSE; 
 
   	nx_uint16_t x;
   	nx_uint16_t y;
@@ -52,6 +61,7 @@ module smartBraceletC {
   	//***************** Boot interface ********************//
   	event void Boot.booted() {
 		call SplitControl.start();
+		call SerialSC.start(); 
 
 		strcpy(key, KEYS[(TOS_NODE_ID - 1) / 2]);
 		dbg("boot","Application booted with key %s.\n", key);
@@ -77,6 +87,40 @@ module smartBraceletC {
 
   	event void SplitControl.stopDone(error_t err){
     	/* Fill it ... */
+  	}
+  	
+  	
+  	void send_serial_packet(nx_uint8_t type, nx_uint16_t alert_x, nx_uint16_t alert_y) {
+  		serial_msg_t* msg;
+  		
+  		if ( serial_locked ) return; 
+  		
+  		msg = (serial_msg_t*) call SerialPacket.getPayload(&serial_packet, sizeof(serial_msg_t));
+  		if (msg == NULL) return;
+  		
+  		msg->alert_type = type; 
+  		msg->x = alert_x;
+  		msg->y = alert_y;  
+  		
+  		if ( call SerialSend.send(AM_BROADCAST_ADDR, &serial_packet, sizeof(serial_msg_t)) == SUCCESS ) {
+  			dbg("serial", "serial packet sent: {\n\ttype=%u\n\tlast_pos=(x=%u, y=%u)\n}\n", msg->alert_type, msg->x, msg->y); 
+  			serial_locked = TRUE; 
+  		}
+  	}
+  	
+  	event void SerialSC.startDone(error_t err) {
+  		if ( err == SUCCESS ) {
+  			dbg("serial", "Serial bus active. \n"); 
+  			send_serial_packet(TEST, 0, 0); 
+  		} else {
+  			dbg("serial", "Failed to activate the serial bus. Trying again. \n");
+  			call SerialSC.start();  
+  		}
+  		
+  	}
+  	
+  	event void SerialSC.stopDone(error_t err) {
+  		
   	}
 
   	void send_packet(am_addr_t dest, uint8_t type, uint16_t pos_x, uint16_t pos_y, uint8_t kin_status) {
@@ -107,6 +151,7 @@ module smartBraceletC {
         }
   	}
 
+
   	//***************** MilliTimer interface ********************//
   	event void MilliTimer.fired() {
         send_packet(AM_BROADCAST_ADDR, PAIRING, 0, 0, 0);
@@ -114,13 +159,12 @@ module smartBraceletC {
 
   	event void Milli10Timer.fired() {
   		dbg("control","Child timer fired\n");
-		// call KineticRead.read();
-		// call PositionRead.read();
 		call SensorRead.read(); 
   	}
 
   	event void Milli60Timer.fired() {
 		dbg("alert", "MISSING ALERT! LAST KNOWN POSITION: x=%u,y=%u,kinematic_status=%u\n", x,y,kinematic_status);
+		send_serial_packet(MISSING, x, y); 
   	}
 
 
@@ -173,8 +217,9 @@ module smartBraceletC {
   		y = received->y;
   		kinematic_status = received->kinematic_status;
 
-        if (kinematic_status == FALLING) {
+        if (kinematic_status == FALLING && role == PARENT) {
             dbg("alert", "ALERT. FALLING status detected. Baby is in position (x=%u, y=%u)", x, y); 
+            send_serial_packet(FALL, x, y); 
         }
   	}
 
@@ -203,6 +248,14 @@ module smartBraceletC {
 
 		return buf;
 
+  	}
+  	
+  	//***************************************************************//
+  	event void SerialSend.sendDone(message_t* buf,error_t err) {
+  		serial_locked = FALSE; 
+  		if ( err == SUCCESS ) {
+  			dbg("serial", "Message successfully delivered on serial bus. \n"); 
+  		}
   	}
 
     //************************* Read interface **********************//

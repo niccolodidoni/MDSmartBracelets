@@ -1,0 +1,5 @@
+Open serial forwarder on port 9001
+java net.tinyos.sf.SerialForwarder -comm sf@localhost:9001&
+
+Run java program that accepts serial connections on port 9002
+java Serial -comm sf@localhost:9002

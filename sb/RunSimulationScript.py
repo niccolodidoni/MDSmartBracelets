@@ -52,6 +52,8 @@ print "Activate debug message on channel radio"
 t.addChannel("radio",out);
 print "Activate debug message on channel control"
 t.addChannel("control",out);
+print "Activate debug message on channel serial"
+t.addChannel("serial",out);
 
 print "Creating node 1...";
 node1 =t.getNode(1);
@@ -105,7 +107,11 @@ for i in range(1, 3):
 
 print "Start simulation with TOSSIM! \n\n\n";
 
-for i in range(0,3000):
+for i in range(0,60000):
 	t.runNextEvent()
+	if i == 2000: 
+		print "Turning off mote 1"
+		t.getNode(1).turnOff()
+		
 
 print "\n\n\nSimulation finished!";
