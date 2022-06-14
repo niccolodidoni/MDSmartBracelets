@@ -1,7 +1,8 @@
 #include "smartBracelet.h"
 #include "Timer.h"
+#include "string.h"
 
-#define PAIRING_TIME 300
+#define PAIRING_TIME 30000
 #define BOTHWAYS 2
 
 module smartBraceletC {
@@ -31,7 +32,7 @@ module smartBraceletC {
 } implementation {
 	
 	uint8_t role; 
-  	//nx_uint8_t key[21] = "j2GV2SEI81x2CHxYNWSf"; // KEYS[0];
+  	nx_uint8_t key[21]; 
   	
   	message_t packet;
   	am_addr_t pair_addr = AM_BROADCAST_ADDR;
@@ -49,8 +50,10 @@ module smartBraceletC {
 
   	//***************** Boot interface ********************//
   	event void Boot.booted() {
-		dbg("boot","Application booted.\n");
 		call SplitControl.start();
+		
+		strcpy(key, KEYS[(TOS_NODE_ID - 1) / 2]); 
+		dbg("boot","Application booted with key %s.\n", key);
   	}
 
   	//***************** SplitControl interface ********************//
@@ -61,12 +64,14 @@ module smartBraceletC {
   		} else {
   			role = CHILD; 
   		}
+  		
+  		
     	if(err == SUCCESS){
     	  	mode = PAIRING;
   			confirmation = 0;
     		call MilliTimer.startPeriodic(PAIRING_TIME);	//start pairing
     	}
-    	else call SplitControl.start(); 
+  		else call SplitControl.start(); 
   	}
 
   	event void SplitControl.stopDone(error_t err){
@@ -89,7 +94,7 @@ module smartBraceletC {
 	    msg->x = pos_x; 
 		msg->y = pos_y; 
 		msg->kinematic_status = kin_status; 
-		strcpy(msg->key, KEYS[(TOS_NODE_ID-1)/2]);
+		strcpy(msg->key, key);
 	    
 	    if( call AMSend.send(dest, &packet, sizeof(my_msg_t)) == SUCCESS ){
 		   	dbg("radio", 
@@ -130,10 +135,10 @@ module smartBraceletC {
   		if(conf == BOTHWAYS){
   			dbg("control", "Ending Pairing phase, going into Operation mode\n");
   			mode = INFO;
-  			if(TOS_NODE_ID % 2 == PARENT){
+  			if(role == PARENT){
   				call Milli60Timer.startOneShot(60000);
   			}
-  			else if(TOS_NODE_ID % 2 == CHILD) {	
+  			else if(role == CHILD) {	
   				call Milli10Timer.startPeriodic(10000);
   			}
   		}
@@ -144,7 +149,7 @@ module smartBraceletC {
   		//if ( pair_addr != AM_BROADCAST_ADDR ) return; 
   		
   		if ( answer && pair_addr == AM_BROADCAST_ADDR) {
-  			if(strcmp(KEYS[(TOS_NODE_ID-1)/2],received->key) == 0){
+  			if(strcmp(key, received->key) == 0){
 	  			pair_addr = call ReceivePacket.source(rcv); 
 	  			dbg("control", "PAIRING WITH: %u\n", pair_addr);
 	  			confirmation++;  
