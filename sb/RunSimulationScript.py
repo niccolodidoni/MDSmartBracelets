@@ -44,24 +44,14 @@ print "Activate debug message on channel position_sensor"
 t.addChannel("position_sensor",out);
 print "Activate debug message on channel app_kin_sensor"
 t.addChannel("app_kin_sensor",out);
+print "Activate debug message on channel app_sensor"
+t.addChannel("app_sensor",out);
 print "Activate debug message on channel app_pos_sensor"
 t.addChannel("app_pos_sensor",out);
 print "Activate debug message on channel radio"
 t.addChannel("radio",out);
 print "Activate debug message on channel control"
 t.addChannel("control",out);
-
-print "Activate debug message on channel radio_send"
-t.addChannel("radio_send",out);
-print "Activate debug message on channel radio_ack"
-t.addChannel("radio_ack",out);
-print "Activate debug message on channel radio_rec"
-t.addChannel("radio_rec",out);
-print "Activate debug message on channel radio_pack"
-t.addChannel("radio_pack",out);
-print "Activate debug message on channel role"
-t.addChannel("role",out);
-
 
 print "Creating node 1...";
 node1 =t.getNode(1);

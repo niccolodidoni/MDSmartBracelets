@@ -22,6 +22,12 @@ typedef struct pos {
 	nx_uint16_t y;
 } pos_t;
 
+typedef struct sensor_data {
+	kinematic_status_t kinematic_status; 
+	nx_uint16_t x;
+	nx_uint16_t y;
+} sensor_data_t; 
+
 // Bracelet role
 #define PARENT 0
 #define CHILD 1
