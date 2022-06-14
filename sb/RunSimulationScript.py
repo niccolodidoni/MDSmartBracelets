@@ -52,6 +52,8 @@ print "Activate debug message on channel radio"
 t.addChannel("radio",out);
 print "Activate debug message on channel control"
 t.addChannel("control",out);
+print "Activate debug message on channel alert"
+t.addChannel("alert",out);
 
 print "Creating node 1...";
 node1 =t.getNode(1);
@@ -69,13 +71,13 @@ print "Creating node 3...";
 node3 = t.getNode(3);
 time3 = 0*t.ticksPerSecond();
 node3.bootAtTime(time3);
-print ">>>Will boot at time", time2/t.ticksPerSecond(), "[sec]";
+print ">>>Will boot at time", time3/t.ticksPerSecond(), "[sec]";
 
 print "Creating node 4...";
 node4 = t.getNode(4);
 time4 = 0*t.ticksPerSecond();
 node4.bootAtTime(time4);
-print ">>>Will boot at time", time2/t.ticksPerSecond(), "[sec]";
+print ">>>Will boot at time", time4/t.ticksPerSecond(), "[sec]";
 
 
 print "Creating radio channels..."
@@ -117,7 +119,17 @@ for i in range(1, 5):
 
 print "Start simulation with TOSSIM! \n\n\n";
 
-for i in range(0,5000):
+starting_time = t.time()
+turn_off_time = t.time()
+turn_off = False
+while(t.time() < (starting_time + 300*t.ticksPerSecond())):
 	t.runNextEvent()
+	if((t.time() > starting_time + 60*t.ticksPerSecond()) and turn_off == False):
+		turn_off_time = t.time()
+		node3.turnOff()
+		turn_off = True
+	if(t.time() > turn_off_time + 90*t.ticksPerSecond() and turn_off == True):
+		node3.turnOn()
+	
 
 print "\n\n\nSimulation finished!";

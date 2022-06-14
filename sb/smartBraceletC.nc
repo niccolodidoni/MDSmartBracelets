@@ -129,7 +129,7 @@ module smartBraceletC {
   	}
 
   	event void Milli60Timer.fired() {
-		dbg("alert", "MISSING ALERT! LAST KNOWN POSITION: x=%u,y=%u,kinematic_status=%u\n", x,y,kinematic_status);
+		dbg("alert", "MISSING ALERT! LAST KNOWN POSITION: x=%u,y=%u,kinematic_status=%s\n", x,y,kinematic_string(kinematic_status));
   	}
   	
   	void isPairingDone(nx_uint8_t conf){
