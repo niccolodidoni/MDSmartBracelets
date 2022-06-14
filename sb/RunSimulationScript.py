@@ -122,14 +122,16 @@ print "Start simulation with TOSSIM! \n\n\n";
 starting_time = t.time()
 turn_off_time = t.time()
 turn_off = False
+done = False
 while(t.time() < (starting_time + 300*t.ticksPerSecond())):
 	t.runNextEvent()
 	if((t.time() > starting_time + 60*t.ticksPerSecond()) and turn_off == False):
 		turn_off_time = t.time()
 		node3.turnOff()
 		turn_off = True
-	if(t.time() > turn_off_time + 90*t.ticksPerSecond() and turn_off == True):
+	if(t.time() > turn_off_time + 90*t.ticksPerSecond() and turn_off == True and done == False):
 		node3.turnOn()
+		done = True
 	
 
 print "\n\n\nSimulation finished!";
