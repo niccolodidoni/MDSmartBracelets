@@ -118,7 +118,7 @@ module smartBraceletC {
   	}
 
   	event void Milli60Timer.fired() {
-		dbg("control", "MISSING ALERT! LAST KNOWN POSITION: x=%u,y=%u,kinematic_status=%u\n", x,y,kinematic_status);
+		dbg("alert", "MISSING ALERT! LAST KNOWN POSITION: x=%u,y=%u,kinematic_status=%u\n", x,y,kinematic_status);
   	}
 
 
@@ -144,11 +144,11 @@ module smartBraceletC {
   		}
   	}
 
-  	void handle_pairing(my_msg_t* received, message_t* rcv, bool answer) {
+  	void handle_pairing(my_msg_t* received, message_t* rcv, bool is_pairing) {
 
-  		//if ( pair_addr != AM_BROADCAST_ADDR ) return;
-
-  		if ( answer && pair_addr == AM_BROADCAST_ADDR) {
+        // if we receive the first PAIRING MESSAGE (the pair_addr hasn't been
+        // modified), we save the sender message only if it has our key.
+  		if (is_pairing && pair_addr == AM_BROADCAST_ADDR) {
   			if(strcmp(key, received->key) == 0){
 	  			pair_addr = call ReceivePacket.source(rcv);
 	  			dbg("control", "PAIRING WITH: %u\n", pair_addr);
@@ -158,7 +158,7 @@ module smartBraceletC {
 	  			isPairingDone(confirmation);
 	  		}
   		}
-  		else if( !answer && pair_addr != TOS_NODE_ID){
+  		else if( !is_pairing && pair_addr != TOS_NODE_ID){
   			confirmation++;
   			dbg("control", "Confirmation for PAIREND received, count: %u\n", confirmation);
   			isPairingDone(confirmation);
@@ -171,6 +171,9 @@ module smartBraceletC {
   		y = received->y;
   		kinematic_status = received->kinematic_status;
 
+        if (kinematic_status == FALLING) {
+            dbg("alert", "ALERT. FALLING status detected. Baby is in position (x=%u, y=%u)", x, y); 
+        }
   	}
 
 
