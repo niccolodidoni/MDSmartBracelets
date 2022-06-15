@@ -172,19 +172,19 @@ module smartBraceletC {
   	}
 
   	event void Milli60Timer.fired() {
-		dbg("alert", "MISSING ALERT! LAST KNOWN POSITION: x=%u,y=%u,kinematic_status=%u\n", x,y,kinematic_string(kinematic_status));
+		dbg("alert", "MISSING ALERT! LAST KNOWN POSITION: x=%u,y=%u,kinematic_status=%s\n", x,y,kinematic_string(kinematic_status));
 		send_serial_packet(MISSING, x, y);
   	}
 
 
   	//********************* AMSend interface ****************//
-  	event void AMSend.sendDone(message_t* buf,error_t err) {
+ /* 	event void AMSend.sendDone(message_t* buf,error_t err) {
   		locked = FALSE;
 
 		if ( err != SUCCESS ) return;
 
 		dbg("radio", "Packet sent successfully. \n");
-  	}
+  	}*/
 
   	void isPairingDone(nx_uint8_t conf){
   		if(conf == BOTHWAYS){
