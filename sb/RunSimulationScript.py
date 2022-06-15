@@ -11,6 +11,11 @@ from TOSSIM import *;
 
 t = Tossim([]);
 
+sf = SerialForwarder(9001);
+throttle = Throttle(t, 10);
+sf_process=True;
+sf_throttle=True;
+
 
 topofile="topology.txt";
 modelfile="meyer-heavy.txt";
@@ -84,9 +89,9 @@ print ">>>Will boot at time", time4/t.ticksPerSecond(), "[sec]";
 
 print "Creating radio channels..."
 f = open(topofile, "r");
-lines = f.readlines()
+lines = f.readlines();
 for line in lines:
-  s = line.split()
+  s = line.split();
   if (len(s) > 0):
     print ">>>Setting radio channel from node ", s[0], " to node ", s[1], " with gain ", s[2], " dBm"
     radio.add(int(s[0]), int(s[1]), float(s[2]))
@@ -125,8 +130,14 @@ starting_time = t.time()
 turn_off_time = t.time()
 turn_off = False
 done = False
+
+sf.process();
+throttle.initialize();
+
 while(t.time() < (starting_time + 150*t.ticksPerSecond())):
-	t.runNextEvent()
+	t.runNextEvent();
+	throttle.checkThrottle();
+	sf.process();
 	if((t.time() > starting_time + 60*t.ticksPerSecond()) and turn_off == False):
 		turn_off_time = t.time()
 		node3.turnOff()

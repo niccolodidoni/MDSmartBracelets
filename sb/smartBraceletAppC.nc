@@ -1,4 +1,4 @@
-#include "sb_serial.h"
+#include "TestSerial.h"
 #include "smartBracelet.h"
 
 configuration smartBraceletAppC {}
@@ -46,7 +46,7 @@ implementation {
   App.Acks -> ActiveMessageC;
 
   // Serial communication
-  App.SerialSend -> SerialAM.AMSend[AM_SERIAL_MSG];
+  App.SerialSend -> SerialAM.AMSend[AM_TEST_SERIAL_MSG];
   App.SerialPacket -> SerialAM;
   App.SerialSC -> SerialAM;
 

@@ -1,4 +1,4 @@
-#include "sb_serial.h"
+#include "TestSerial.h"
 #include "smartBracelet.h"
 #include "Timer.h"
 #include "string.h"
@@ -92,19 +92,20 @@ module smartBraceletC {
 
 
   	void send_serial_packet(nx_uint8_t type, nx_uint16_t alert_x, nx_uint16_t alert_y) {
-  		serial_msg_t* msg;
+  		test_serial_msg_t* msg;
 
   		if ( serial_locked ) return;
 
-  		msg = (serial_msg_t*) call SerialPacket.getPayload(&serial_packet, sizeof(serial_msg_t));
+  		msg = (test_serial_msg_t*) call SerialPacket.getPayload(&serial_packet, sizeof(test_serial_msg_t));
   		if (msg == NULL) return;
 
   		msg->alert_type = type;
   		msg->x = alert_x;
-  		msg->y = alert_y;
+  		msg->y = alert_y; 
+		// msg->counter = x; 
 
-  		if ( call SerialSend.send(AM_BROADCAST_ADDR, &serial_packet, sizeof(serial_msg_t)) == SUCCESS ) {
-  			dbg("serial", "serial packet sent: {\n\ttype=%u\n\tlast_pos=(x=%u, y=%u)\n}\n", msg->alert_type, msg->x, msg->y);
+  		if ( call SerialSend.send(AM_BROADCAST_ADDR, &serial_packet, sizeof(test_serial_msg_t)) == SUCCESS ) {
+  			dbg("serial", "serial packet sent: {\n\ttype=%u\n\tlast_pos=(x=%u, y=%u)\n}\n", type, x, y);
   			serial_locked = TRUE;
   		}
   	}
@@ -112,7 +113,7 @@ module smartBraceletC {
   	event void SerialSC.startDone(error_t err) {
   		if ( err == SUCCESS ) {
   			dbg("serial", "Serial bus active. \n");
-  			send_serial_packet(TEST, 0, 0);
+  			send_serial_packet(3, 0, 0);
   		} else {
   			dbg("serial", "Failed to activate the serial bus. Trying again. \n");
   			call SerialSC.start();
@@ -173,7 +174,7 @@ module smartBraceletC {
 
   	event void Milli60Timer.fired() {
 		dbg("alert", "MISSING ALERT! LAST KNOWN POSITION: x=%u,y=%u,kinematic_status=%s\n", x,y,kinematic_string(kinematic_status));
-		send_serial_packet(MISSING, x, y);
+		send_serial_packet(2, x, y);
   	}
 
 
@@ -240,7 +241,7 @@ module smartBraceletC {
 
         if (kinematic_status == FALLING && role == PARENT) {
             dbg("alert", "ALERT. FALLING status detected. Baby is in position (x=%u, y=%u)", x, y);
-            send_serial_packet(FALL, x, y);
+            send_serial_packet(1, x, y);
         }
   	}
 
@@ -272,8 +273,9 @@ module smartBraceletC {
   	}
 
   	//***************************************************************//
-  	event void SerialSend.sendDone(message_t* buf,error_t err) {
+  	event void SerialSend.sendDone(message_t* buf,error_t err) { 
   		serial_locked = FALSE;
+  		
   		if ( err == SUCCESS ) {
   			dbg("serial", "Message successfully delivered on serial bus. \n");
   		}

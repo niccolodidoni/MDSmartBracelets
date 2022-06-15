@@ -1,12 +1,14 @@
 COMPONENT=smartBraceletAppC
-BUILD_EXTRA_DEPS += Serial.class
-CLEAN_EXTRA = *.class SerialMsg.java
+BUILD_EXTRA_DEPS += TestSerial.class
+CLEAN_EXTRA = *.class TestSerialMsg.java
+
 CFLAGS += -I$(TOSDIR)/lib/T2Hack
 
-Serial.class: $(wildcard *.java) SerialMsg.java
+TestSerial.class: $(wildcard *.java) TestSerialMsg.java
 	javac -target 1.4 -source 1.4 *.java
 
-SerialMsg.java:
-	mig java -target=null $(CFLAGS) -java-classname=SerialMsg sb_serial.h serial_msg -o $@
+TestSerialMsg.java:
+	mig java -target=null $(CFLAGS) -java-classname=TestSerialMsg TestSerial.h test_serial_msg -o $@
+
 
 include $(MAKERULES)
