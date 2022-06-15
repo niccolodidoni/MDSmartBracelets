@@ -2,3 +2,6 @@
 *.pdf
 build/**
 simbuild/**
+*.so
+*.class
+*.xml
