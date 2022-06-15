@@ -178,14 +178,6 @@ module smartBraceletC {
 
 
   	//********************* AMSend interface ****************//
-  	event void AMSend.sendDone(message_t* buf,error_t err) {
-  		locked = FALSE;
-
-		if ( err != SUCCESS ) return;
-
-		dbg("radio", "Packet sent successfully. \n");
-  	}
-
   	void isPairingDone(nx_uint8_t conf){
   		if(conf == BOTHWAYS){
   			dbg("control", "Ending Pairing phase, going into Operation mode\n");

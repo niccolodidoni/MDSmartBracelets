@@ -125,7 +125,7 @@ starting_time = t.time()
 turn_off_time = t.time()
 turn_off = False
 done = False
-while(t.time() < (starting_time + 300*t.ticksPerSecond())):
+while(t.time() < (starting_time + 150*t.ticksPerSecond())):
 	t.runNextEvent()
 	if((t.time() > starting_time + 60*t.ticksPerSecond()) and turn_off == False):
 		turn_off_time = t.time()

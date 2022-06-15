@@ -55,10 +55,11 @@ public class Serial implements MessageListener {
   	}
 
   	public void sendPackets() {
+  		/*
     	int counter = 0;
     	SerialMsg payload = new SerialMsg();
     	
-    	/*
+    	
     	try {
       		while (true) {
 				System.out.println("Sending packet " + counter);
@@ -77,8 +78,9 @@ public class Serial implements MessageListener {
   	}
 
  	public void messageReceived(int to, Message message) {
-    	SerialMsg msg = (SerialMsg)message;
-    	System.out.println("Received packet sequence number: " + msg.get_alert_type());
+ 		System.out.println("Received packet"); 
+    	// SerialMsg msg = (SerialMsg)message;
+    	// System.out.println("Received packet sequence number: " + msg.get_alert_type());
   	}
   
   	private static void usage() {
@@ -103,12 +105,16 @@ public class Serial implements MessageListener {
     
     	if (source == null) {
       		phoenix = BuildSource.makePhoenix(PrintStreamMessenger.err);
+      		System.out.println("Done something on no source"); 
     	} else {
       		phoenix = BuildSource.makePhoenix(source, PrintStreamMessenger.err);
+      		System.out.println("Done something with source"); 
     	}
-
+		
     	MoteIF mif = new MoteIF(phoenix);
+    	System.out.println("MoteIF init"); 
     	Serial serial = new Serial(mif);
-    	serial.sendPackets();
+    	System.out.println("Serial init"); 
+    	// serial.sendPackets();
   	}
 }

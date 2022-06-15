@@ -1,7 +1,8 @@
 .DS_Store
 *.pdf
-build/**
-simbuild/**
+build/
+simbuild/
 *.so
 *.class
 *.xml
+*.pyc
