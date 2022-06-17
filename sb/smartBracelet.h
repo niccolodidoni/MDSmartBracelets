@@ -50,16 +50,16 @@ typedef nx_struct my_msg {
 
 //preloaded keys
 static const char KEYS[][21] = {
-				"j2GV2SEI81x2CHxYNWSf",
-				"gEI5w1YtC5DDEfGT1tNk",
-				"a4Ut8wFuKRH41QHybqFd",
-				"f30AJWIVO4XZyvDCH1X0",
-				"NvVMBT40DOV39Gj6xnxE",
-				"LFoWonpoq6yZh5awz753",
-				"7KWU3PAgPSojcQ1J5Vbd",
-				"Vj7Shb1NcRuhxj7pcWOO",
-				"4lX6kesZKMmT5WcebNrB",
-				"OGmKTeqwdV9n6wwObR5V"};
+				"j2GV2SEI81x2CHxYNWSf\0",
+				"gEI5w1YtC5DDEfGT1tNk\0",
+				"a4Ut8wFuKRH41QHybqFd\0",
+				"f30AJWIVO4XZyvDCH1X0\0",
+				"NvVMBT40DOV39Gj6xnxE\0",
+				"LFoWonpoq6yZh5awz753\0",
+				"7KWU3PAgPSojcQ1J5Vbd\0",
+				"Vj7Shb1NcRuhxj7pcWOO\0",
+				"4lX6kesZKMmT5WcebNrB\0",
+				"OGmKTeqwdV9n6wwObR5V\0"};
 				
 
 enum{

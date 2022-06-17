@@ -57,6 +57,34 @@ module smartBraceletC {
   	nx_uint8_t mode;
   	//used to terminate pairing, if pairend is sent and received
   	nx_uint8_t confirmation;
+  	
+  	
+  	void nx_strncpy(nx_uint8_t* dst, const char* src, int n) {
+  		int i; 
+  		
+  		for (i=0; i<n; i++) {
+  			dst[i] = src[i]; 
+  		}
+  	}
+  	
+  	void nx_intncpy(nx_uint8_t* dst, nx_uint8_t* src, int n) {
+  		int i; 
+  		
+  		for (i=0; i<n; i++) {
+  			dst[i] = src[i]; 
+  		}
+  	}
+  	
+  	int nx_strncmp(nx_uint8_t* s1, nx_uint8_t* s2, int n) {
+  		int i; 
+  		
+  		for (i=0; i<n; i++) {
+  			if (s1[i] > s2[i]) return -1; 
+  			if (s1[i] < s2[i]) return 1; 
+  		}
+  		
+  		return 0; 
+  	}
 
 
   	//***************** Boot interface ********************//
@@ -64,7 +92,7 @@ module smartBraceletC {
 		call SplitControl.start();
 		call SerialSC.start();
 
-		strcpy(key, KEYS[(TOS_NODE_ID - 1) / 2]);
+		nx_strncpy(key, KEYS[(TOS_NODE_ID - 1)/2], 20);
 		dbg("boot","Application booted with key %s.\n", key);
   	}
 
@@ -113,7 +141,7 @@ module smartBraceletC {
   	event void SerialSC.startDone(error_t err) {
   		if ( err == SUCCESS ) {
   			dbg("serial", "Serial bus active. \n");
-  			send_serial_packet(3, 0, 0);
+  			// send_serial_packet(3, 0, 0);
   		} else {
   			dbg("serial", "Failed to activate the serial bus. Trying again. \n");
   			call SerialSC.start();
@@ -149,7 +177,7 @@ module smartBraceletC {
 	    msg->x = pos_x;
 		msg->y = pos_y;
 		msg->kinematic_status = kin_status;
-		strcpy(msg->key, key);
+		nx_intncpy(msg->key, key, 20);
 		call Acks.requestAck(&packet);
 	    if( call AMSend.send(dest, &packet, sizeof(my_msg_t)) == SUCCESS ){
 		   	dbg("radio",
@@ -184,7 +212,7 @@ module smartBraceletC {
   			dbg("control", "Ending Pairing phase, going into Operation mode\n");
   			mode = INFO;
   			if(role == PARENT){
-  				call Milli60Timer.startOneShot(60000);
+  				call Milli60Timer.startOneShot(60000u);
   			}
   			else if(role == CHILD) {
   				call Milli10Timer.startPeriodic(10000);
@@ -218,7 +246,7 @@ module smartBraceletC {
         // if we receive the first PAIRING MESSAGE (the pair_addr hasn't been
         // modified), we save the sender message only if it has our key.
   		if (is_pairing && pair_addr == AM_BROADCAST_ADDR) {
-  			if(strcmp(key, received->key) == 0){
+  			if(nx_strncmp(key, received->key, 20) == 0){
 	  			pair_addr = call ReceivePacket.source(rcv);
 	  			dbg("control", "PAIRING WITH: %u\n", pair_addr);
 	  			//dbg("control", "Confirmation for PAIREND sent, count: %u+1\n", confirmation);
@@ -265,7 +293,7 @@ module smartBraceletC {
   		else if ( msg->msg_type == INFO && mode == INFO && call ReceivePacket.source(buf) == pair_addr) {
   			dbg("control", "Received Info from Child\n");
   			handle_info(msg);
-  			call Milli60Timer.startOneShot(60000);
+  			call Milli60Timer.startOneShot(60000u);
   		}
 
 		return buf;
