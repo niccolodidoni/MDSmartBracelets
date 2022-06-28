@@ -26,15 +26,16 @@ generic module SensorP() {
         // using directly hand computed intervals from 0 to 2^16 - 1 is more
         // efficient.
         sensor_data_t data; 
-        uint16_t num = call Random.rand16();
+        uint16_t num = call Random.rand16() + call Timer0.getNow();
 
-        data.kinematic_status = FALLING;
         if ( 0 <= num && num <= STANDING_UPPER ) {
             data.kinematic_status = STANDING;
         } else if ( STANDING_UPPER < num && num <= WALKING_UPPER ) {
             data.kinematic_status = WALKING;
         } else if ( WALKING_UPPER < num && num <= RUNNING_UPPER ) {
             data.kinematic_status = RUNNING;
+        } else {
+        	data.kinematic_status = FALLING;
         }
         
         data.x = call Random.rand16();

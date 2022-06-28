@@ -11,14 +11,32 @@ from TOSSIM import *;
 
 t = Tossim([]);
 
+if len(sys.argv) != 4: 
+	print "Usage: <serial_forwarder> <stop_mote> <number_of_ticks>"
+	print "\t<serial_forwarder>: Y to use the serial forwarder, N otherwise"
+	print "\t<stop_mote>: Y to stop mote 3, N otherwise"
+	sys.exit()
+
+
 sf = SerialForwarder(9001);
 throttle = Throttle(t, 10);
 sf_process=True;
 sf_throttle=True;
+stop_mote=True;
+number_of_ticks = 150; 
 
-if len(sys.argv) >= 2: 
+if sys.argv[1] == "N": 
 	sf_process = False
 	sf_throttle = False
+	
+if sys.argv[2] == "N":
+	stop_mote = False 
+	
+
+try: 
+	number_of_ticks = int(sys.argv[3])
+except e:
+	pass
 
 topofile="topology.txt";
 modelfile="meyer-heavy.txt";
@@ -50,6 +68,8 @@ print "Activate debug message on channel kinetic_sensor"
 t.addChannel("kinetic_sensor",out);
 print "Activate debug message on channel position_sensor"
 t.addChannel("position_sensor",out);
+print "Activate debug message on channel complete_sensor"
+t.addChannel("complete_sensor",out);
 print "Activate debug message on channel app_kin_sensor"
 t.addChannel("app_kin_sensor",out);
 print "Activate debug message on channel app_sensor"
@@ -137,17 +157,17 @@ done = False
 if sf_process: sf.process();
 if sf_throttle: throttle.initialize();
 
-while(t.time() < (starting_time + 200*t.ticksPerSecond())):
+while(t.time() < (starting_time + number_of_ticks*t.ticksPerSecond())):
 	t.runNextEvent();
 	if sf_throttle: throttle.checkThrottle();
 	if sf_process: sf.process();
-	if((t.time() > starting_time + 60*t.ticksPerSecond()) and turn_off == False):
+	if(stop_mote and (t.time() > starting_time + 60*t.ticksPerSecond()) and turn_off == False):
 		print "Turning mote 3 off."; 
 		turn_off_time = t.time()
 		node3.turnOff()
 		turn_off = True
-	if(t.time() > turn_off_time + 90*t.ticksPerSecond() and turn_off == True and done == False):
-		print "Turning mote 3 on. "; 
+	if(stop_mote and t.time() > turn_off_time + 90*t.ticksPerSecond() and turn_off == True and done == False):
+		print "Turning mote 3 on."; 
 		node3.turnOn()
 		done = True
 

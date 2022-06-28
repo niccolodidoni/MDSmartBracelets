@@ -315,7 +315,7 @@ module smartBraceletC {
   		kinematic_status = received->kinematic_status;
 
         if (kinematic_status == FALLING && role == PARENT) {
-            dbg("alert", "ALERT. FALLING status detected. Baby is in position (x=%u, y=%u)", x, y);
+            dbg("alert", "ALERT. FALLING status detected. Baby is in position (x=%u, y=%u)\n", x, y);
             send_serial_packet(1, x, y);
         }
   	}
