@@ -1,8 +1,8 @@
 #include "smartBracelet.h"
 
-#define STANDING_UPPER 19660u
-#define WALKING_UPPER 39321u
-#define RUNNING_UPPER 58981u
+#define STANDING_UPPER 19661u
+#define WALKING_UPPER 39322u
+#define RUNNING_UPPER 58983u
 #define FALLING_UPPER 65535u
 
 generic module SensorP() {
