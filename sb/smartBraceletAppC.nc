@@ -13,6 +13,7 @@ implementation {
   components new TimerMilliC() as TimerMilliC;
   components new TimerMilliC() as Timer10MilliC;
   components new TimerMilliC() as Timer60MilliC;
+  components new TimerMilliC() as TimerKeepAliveC;
   components ActiveMessageC;
   components SerialActiveMessageC as SerialAM;
 
@@ -54,6 +55,7 @@ implementation {
   App.MilliTimer -> TimerMilliC;
   App.Milli10Timer -> Timer10MilliC;
   App.Milli60Timer -> Timer60MilliC;
+  App.KeepAliveTimer -> TimerKeepAliveC;
 
   // Sensor read
   App.PositionRead -> PositionSensorC;

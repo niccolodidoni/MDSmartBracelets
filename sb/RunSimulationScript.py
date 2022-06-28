@@ -16,6 +16,9 @@ throttle = Throttle(t, 10);
 sf_process=True;
 sf_throttle=True;
 
+if len(sys.argv) >= 2: 
+	sf_process = False
+	sf_throttle = False
 
 topofile="topology.txt";
 modelfile="meyer-heavy.txt";
@@ -131,18 +134,20 @@ turn_off_time = t.time()
 turn_off = False
 done = False
 
-sf.process();
-throttle.initialize();
+if sf_process: sf.process();
+if sf_throttle: throttle.initialize();
 
-while(t.time() < (starting_time + 150*t.ticksPerSecond())):
+while(t.time() < (starting_time + 200*t.ticksPerSecond())):
 	t.runNextEvent();
-	throttle.checkThrottle();
-	sf.process();
+	if sf_throttle: throttle.checkThrottle();
+	if sf_process: sf.process();
 	if((t.time() > starting_time + 60*t.ticksPerSecond()) and turn_off == False):
+		print "Turning mote 3 off."; 
 		turn_off_time = t.time()
 		node3.turnOff()
 		turn_off = True
 	if(t.time() > turn_off_time + 90*t.ticksPerSecond() and turn_off == True and done == False):
+		print "Turning mote 3 on. "; 
 		node3.turnOn()
 		done = True
 
