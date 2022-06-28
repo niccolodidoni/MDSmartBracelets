@@ -1,0 +1,4228 @@
+********************************************
+*                                          *
+*             TOSSIM Script                *
+*                                          *
+********************************************
+Initializing mac....
+Initializing radio channels....
+    using topology file: topology.txt
+    using noise file: meyer-heavy.txt
+Initializing simulator....
+Activate debug message on channel init
+Activate debug message on channel boot
+Activate debug message on channel kinetic_sensor
+Activate debug message on channel position_sensor
+Activate debug message on channel complete_sensor
+Activate debug message on channel app_kin_sensor
+Activate debug message on channel app_sensor
+Activate debug message on channel app_pos_sensor
+Activate debug message on channel radio
+Activate debug message on channel control
+Activate debug message on channel alert
+Activate debug message on channel serial
+Creating node 1...
+>>>Will boot at time 0 [sec]
+Creating node 2...
+>>>Will boot at time 0 [sec]
+Creating node 3...
+>>>Will boot at time 0 [sec]
+Creating node 4...
+>>>Will boot at time 0 [sec]
+Creating radio channels...
+>>>Setting radio channel from node  1  to node  2  with gain  -60.0  dBm
+>>>Setting radio channel from node  2  to node  1  with gain  -60.0  dBm
+>>>Setting radio channel from node  1  to node  3  with gain  -60.0  dBm
+>>>Setting radio channel from node  3  to node  1  with gain  -60.0  dBm
+>>>Setting radio channel from node  1  to node  4  with gain  -60.0  dBm
+>>>Setting radio channel from node  4  to node  1  with gain  -60.0  dBm
+>>>Setting radio channel from node  2  to node  3  with gain  -60.0  dBm
+>>>Setting radio channel from node  3  to node  2  with gain  -60.0  dBm
+>>>Setting radio channel from node  2  to node  4  with gain  -60.0  dBm
+>>>Setting radio channel from node  4  to node  2  with gain  -60.0  dBm
+>>>Setting radio channel from node  3  to node  4  with gain  -60.0  dBm
+>>>Setting radio channel from node  4  to node  3  with gain  -60.0  dBm
+Initializing Closest Pattern Matching (CPM)...
+Reading noise model data file: meyer-heavy.txt
+Loading:##Done!
+>>>Creating noise model for node: 1
+>>>Creating noise model for node: 2
+>>>Creating noise model for node: 3
+>>>Creating noise model for node: 4
+Start simulation with TOSSIM! 
+
+
+
+DEBUG (1): Application booted with key j2GV2SEI81x2CHxYNWSf.
+DEBUG (4): Application booted with key gEI5w1YtC5DDEfGT1tNk.
+DEBUG (3): Application booted with key gEI5w1YtC5DDEfGT1tNk.
+DEBUG (2): Application booted with key j2GV2SEI81x2CHxYNWSf.
+DEBUG (1): starting MilliTimer.
+DEBUG (2): starting MilliTimer.
+DEBUG (4): starting MilliTimer.
+DEBUG (3): starting MilliTimer.
+DEBUG (4): Serial bus active. 
+DEBUG (3): Serial bus active. 
+DEBUG (1): Serial bus active. 
+DEBUG (2): Serial bus active. 
+DEBUG (1): packet sent: {
+	snd=1->rcv=65535
+	key=j2GV2SEI81x2CHxYNWSf
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): radio locked.
+DEBUG (3): packet sent: {
+	snd=3->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (3): radio locked.
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): packet sent: {
+	snd=2->rcv=65535
+	key=j2GV2SEI81x2CHxYNWSf
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (4): Packet received (mode=BROADCASTING_STATE): {
+	snd=2->rcv=65535
+	key=j2GV2SEI81x2CHxYNWSf
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=BROADCASTING_STATE): {
+	snd=2->rcv=65535
+	key=j2GV2SEI81x2CHxYNWSf
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): PAIRING WITH: 2
+DEBUG (1): Radio locked. Skipping signaling packet. 
+DEBUG (3): Packet received (mode=BROADCASTING_STATE): {
+	snd=2->rcv=65535
+	key=j2GV2SEI81x2CHxYNWSf
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet sent successfully. 
+DEBUG (2): Packet received (mode=BROADCASTING_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=PAIRING_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (3): Packet received (mode=BROADCASTING_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (3): PAIRING WITH: 4
+DEBUG (3): Radio locked. Skipping signaling packet. 
+DEBUG (4): Packet sent successfully. 
+DEBUG (1): Packet received (mode=PAIRING_STATE): {
+	snd=3->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet received (mode=BROADCASTING_STATE): {
+	snd=3->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): PAIRING WITH: 3
+DEBUG (4): packet sent: {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIREND
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=BROADCASTING_STATE): {
+	snd=3->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (3): Packet sent successfully. 
+DEBUG (3): Confirmation for PAIREND resent, Ack was not received
+DEBUG (3): packet sent: {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIREND
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (3): radio locked.
+DEBUG (4): Packet received (mode=PAIRING_STATE): {
+	snd=1->rcv=65535
+	key=j2GV2SEI81x2CHxYNWSf
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (3): Packet received (mode=PAIRING_STATE): {
+	snd=1->rcv=65535
+	key=j2GV2SEI81x2CHxYNWSf
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=BROADCASTING_STATE): {
+	snd=1->rcv=65535
+	key=j2GV2SEI81x2CHxYNWSf
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): PAIRING WITH: 1
+DEBUG (2): packet sent: {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=PAIREND
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (1): Packet sent successfully. 
+DEBUG (1): Confirmation for PAIREND resent, Ack was not received
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=PAIREND
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): radio locked.
+DEBUG (2): Packet received (mode=PAIRING_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=PAIREND
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Received Pairing Confirmation from other side
+DEBUG (2): PAIREND received, count: 1
+DEBUG (1): Packet sent successfully. 
+DEBUG (1): Ack for PAIREND send received, count: 1
+DEBUG (4): Packet received (mode=PAIRING_STATE): {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIREND
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Received Pairing Confirmation from other side
+DEBUG (4): PAIREND received, count: 1
+DEBUG (3): Packet sent successfully. 
+DEBUG (3): Ack for PAIREND send received, count: 1
+DEBUG (3): Packet received (mode=PAIRING_STATE): {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIREND
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (3): Received Pairing Confirmation from other side
+DEBUG (3): PAIREND received, count: 2
+DEBUG (3): Ending Pairing phase, going into Operation mode
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): Ack for PAIREND send received, count: 2
+DEBUG (4): Ending Pairing phase, going into Operation mode
+DEBUG (1): Packet received (mode=PAIRING_STATE): {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=PAIREND
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Received Pairing Confirmation from other side
+DEBUG (1): PAIREND received, count: 2
+DEBUG (1): Ending Pairing phase, going into Operation mode
+DEBUG (2): Packet sent successfully. 
+DEBUG (2): Ack for PAIREND send received, count: 2
+DEBUG (2): Ending Pairing phase, going into Operation mode
+DEBUG (3): Child timer fired
+DEBUG (1): Child timer fired
+DEBUG (3): DATA READ: {
+	kinematic_status=0
+	position=(x=60356, y=45927)
+}
+DEBUG (3): Data received from sensor: {
+	kinetic_status=0
+	position=(x=60356, y=45927)
+}
+DEBUG (3): packet sent: {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(60356, 45927)
+	kinematic status=STANDING
+}.
+DEBUG (3): radio locked.
+DEBUG (1): DATA READ: {
+	kinematic_status=2
+	position=(x=30178, y=22963)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=2
+	position=(x=30178, y=22963)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(30178, 22963)
+	kinematic status=RUNNING
+}.
+DEBUG (1): radio locked.
+DEBUG (4): Packet received (mode=OPERATION_STATE): {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(60356, 45927)
+	kinematic status=STANDING
+}.
+DEBUG (4): Received Info from Child
+DEBUG (3): Packet sent successfully. 
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(30178, 22963)
+	kinematic status=RUNNING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (1): Packet sent successfully. 
+DEBUG (4): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (4): packet sent: {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (2): packet sent: {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (3): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet sent successfully. 
+DEBUG (3): Child timer fired
+DEBUG (1): Child timer fired
+DEBUG (3): DATA READ: {
+	kinematic_status=1
+	position=(x=56842, y=27424)
+}
+DEBUG (3): Data received from sensor: {
+	kinetic_status=1
+	position=(x=56842, y=27424)
+}
+DEBUG (3): packet sent: {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(56842, 27424)
+	kinematic status=WALKING
+}.
+DEBUG (3): radio locked.
+DEBUG (1): DATA READ: {
+	kinematic_status=1
+	position=(x=28421, y=46480)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=1
+	position=(x=28421, y=46480)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(28421, 46480)
+	kinematic status=WALKING
+}.
+DEBUG (1): radio locked.
+DEBUG (4): Packet received (mode=OPERATION_STATE): {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(56842, 27424)
+	kinematic status=WALKING
+}.
+DEBUG (4): Received Info from Child
+DEBUG (3): Packet sent successfully. 
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(28421, 46480)
+	kinematic status=WALKING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (1): Packet sent successfully. 
+DEBUG (4): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (4): packet sent: {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (3): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (2): packet sent: {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (4): Packet sent successfully. 
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet sent successfully. 
+DEBUG (3): Child timer fired
+DEBUG (1): Child timer fired
+DEBUG (3): DATA READ: {
+	kinematic_status=2
+	position=(x=10234, y=48398)
+}
+DEBUG (3): Data received from sensor: {
+	kinetic_status=2
+	position=(x=10234, y=48398)
+}
+DEBUG (3): packet sent: {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(10234, 48398)
+	kinematic status=RUNNING
+}.
+DEBUG (3): radio locked.
+DEBUG (1): DATA READ: {
+	kinematic_status=1
+	position=(x=5117, y=24199)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=1
+	position=(x=5117, y=24199)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(5117, 24199)
+	kinematic status=WALKING
+}.
+DEBUG (1): radio locked.
+DEBUG (4): Packet received (mode=OPERATION_STATE): {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(10234, 48398)
+	kinematic status=RUNNING
+}.
+DEBUG (4): Received Info from Child
+DEBUG (3): Packet sent successfully. 
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(5117, 24199)
+	kinematic status=WALKING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (1): Packet sent successfully. 
+DEBUG (4): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (4): packet sent: {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (2): packet sent: {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (4): Packet sent successfully. 
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet sent successfully. 
+DEBUG (3): Child timer fired
+DEBUG (1): Child timer fired
+DEBUG (3): DATA READ: {
+	kinematic_status=2
+	position=(x=25185, y=61782)
+}
+DEBUG (3): Data received from sensor: {
+	kinetic_status=2
+	position=(x=25185, y=61782)
+}
+DEBUG (3): packet sent: {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(25185, 61782)
+	kinematic status=RUNNING
+}.
+DEBUG (3): radio locked.
+DEBUG (1): DATA READ: {
+	kinematic_status=2
+	position=(x=12592, y=30891)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=2
+	position=(x=12592, y=30891)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(12592, 30891)
+	kinematic status=RUNNING
+}.
+DEBUG (1): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(12592, 30891)
+	kinematic status=RUNNING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (1): Packet sent successfully. 
+DEBUG (4): Packet received (mode=OPERATION_STATE): {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(25185, 61782)
+	kinematic status=RUNNING
+}.
+DEBUG (4): Received Info from Child
+DEBUG (3): Packet sent successfully. 
+DEBUG (4): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (4): packet sent: {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (2): packet sent: {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (3): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet sent successfully. 
+DEBUG (3): Child timer fired
+DEBUG (1): Child timer fired
+DEBUG (3): DATA READ: {
+	kinematic_status=0
+	position=(x=28552, y=21196)
+}
+DEBUG (3): Data received from sensor: {
+	kinetic_status=0
+	position=(x=28552, y=21196)
+}
+DEBUG (3): packet sent: {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(28552, 21196)
+	kinematic status=STANDING
+}.
+DEBUG (3): radio locked.
+DEBUG (4): Packet received (mode=OPERATION_STATE): {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(28552, 21196)
+	kinematic status=STANDING
+}.
+DEBUG (4): Received Info from Child
+DEBUG (1): DATA READ: {
+	kinematic_status=3
+	position=(x=47044, y=43366)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=3
+	position=(x=47044, y=43366)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(47044, 43366)
+	kinematic status=FALLING
+}.
+DEBUG (1): radio locked.
+DEBUG (3): Packet sent successfully. 
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(47044, 43366)
+	kinematic status=FALLING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (2): ALERT. FALLING status detected. Baby is in position (x=47044, y=43366)
+DEBUG (2): serial packet sent: {
+	type=1
+	last_pos=(x=47044, y=43366)
+}
+DEBUG (2): Message successfully delivered on serial bus. 
+DEBUG (1): Packet sent successfully. 
+DEBUG (4): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (4): packet sent: {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (3): Child timer fired
+DEBUG (2): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (2): packet sent: {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (1): Child timer fired
+DEBUG (3): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet sent successfully. 
+DEBUG (3): DATA READ: {
+	kinematic_status=2
+	position=(x=58462, y=1092)
+}
+DEBUG (3): Data received from sensor: {
+	kinetic_status=2
+	position=(x=58462, y=1092)
+}
+DEBUG (3): packet sent: {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(58462, 1092)
+	kinematic status=RUNNING
+}.
+DEBUG (3): radio locked.
+DEBUG (1): DATA READ: {
+	kinematic_status=1
+	position=(x=29231, y=33314)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=1
+	position=(x=29231, y=33314)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(29231, 33314)
+	kinematic status=WALKING
+}.
+DEBUG (1): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(29231, 33314)
+	kinematic status=WALKING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (1): Packet sent successfully. 
+DEBUG (4): Packet received (mode=OPERATION_STATE): {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(58462, 1092)
+	kinematic status=RUNNING
+}.
+DEBUG (4): Received Info from Child
+DEBUG (3): Packet sent successfully. 
+Turning mote 3 off.
+DEBUG (1): Child timer fired
+DEBUG (1): DATA READ: {
+	kinematic_status=2
+	position=(x=37544, y=23646)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=2
+	position=(x=37544, y=23646)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(37544, 23646)
+	kinematic status=RUNNING
+}.
+DEBUG (1): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(37544, 23646)
+	kinematic status=RUNNING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (1): Packet sent successfully. 
+DEBUG (4): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (4): packet sent: {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (2): packet sent: {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (4): Packet sent successfully. 
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet sent successfully. 
+DEBUG (1): Child timer fired
+DEBUG (1): DATA READ: {
+	kinematic_status=1
+	position=(x=11355, y=5643)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=1
+	position=(x=11355, y=5643)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(11355, 5643)
+	kinematic status=WALKING
+}.
+DEBUG (1): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(11355, 5643)
+	kinematic status=WALKING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (1): Packet sent successfully. 
+DEBUG (4): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (4): packet sent: {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (2): packet sent: {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (4): Packet sent successfully. 
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet sent successfully. 
+DEBUG (1): Child timer fired
+DEBUG (1): DATA READ: {
+	kinematic_status=2
+	position=(x=52715, y=726)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=2
+	position=(x=52715, y=726)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(52715, 726)
+	kinematic status=RUNNING
+}.
+DEBUG (1): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(52715, 726)
+	kinematic status=RUNNING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (1): Packet sent successfully. 
+DEBUG (4): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (4): packet sent: {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (2): packet sent: {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (4): Packet sent successfully. 
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet sent successfully. 
+DEBUG (1): Child timer fired
+DEBUG (1): DATA READ: {
+	kinematic_status=2
+	position=(x=61200, y=14863)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=2
+	position=(x=61200, y=14863)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(61200, 14863)
+	kinematic status=RUNNING
+}.
+DEBUG (1): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(61200, 14863)
+	kinematic status=RUNNING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (1): Packet sent successfully. 
+DEBUG (4): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (4): packet sent: {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (2): packet sent: {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (4): Packet sent successfully. 
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet sent successfully. 
+DEBUG (1): Child timer fired
+DEBUG (1): DATA READ: {
+	kinematic_status=1
+	position=(x=26917, y=7824)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=1
+	position=(x=26917, y=7824)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(26917, 7824)
+	kinematic status=WALKING
+}.
+DEBUG (1): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(26917, 7824)
+	kinematic status=WALKING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (1): Packet sent successfully. 
+DEBUG (4): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (4): packet sent: {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Child timer fired
+DEBUG (2): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (2): packet sent: {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (4): Packet sent successfully. 
+DEBUG (1): DATA READ: {
+	kinematic_status=1
+	position=(x=56517, y=10370)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=1
+	position=(x=56517, y=10370)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(56517, 10370)
+	kinematic status=WALKING
+}.
+DEBUG (1): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet sent successfully. 
+DEBUG (4): MISSING ALERT! LAST KNOWN POSITION: x=58462,y=1092,kinematic_status=RUNNING
+DEBUG (4): serial packet sent: {
+	type=2
+	last_pos=(x=58462, y=1092)
+}
+DEBUG (4): Message successfully delivered on serial bus. 
+DEBUG (4): starting MilliTimer.
+DEBUG (4): Serial bus active. 
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(56517, 10370)
+	kinematic status=WALKING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (1): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (1): Child timer fired
+DEBUG (1): DATA READ: {
+	kinematic_status=1
+	position=(x=7707, y=41031)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=1
+	position=(x=7707, y=41031)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(7707, 41031)
+	kinematic status=WALKING
+}.
+DEBUG (1): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(7707, 41031)
+	kinematic status=WALKING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (1): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (2): packet sent: {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (2): Packet sent successfully. 
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (1): Child timer fired
+DEBUG (1): DATA READ: {
+	kinematic_status=3
+	position=(x=61630, y=27233)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=3
+	position=(x=61630, y=27233)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(61630, 27233)
+	kinematic status=FALLING
+}.
+DEBUG (1): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(61630, 27233)
+	kinematic status=FALLING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (2): ALERT. FALLING status detected. Baby is in position (x=61630, y=27233)
+DEBUG (2): serial packet sent: {
+	type=1
+	last_pos=(x=61630, y=27233)
+}
+DEBUG (2): Message successfully delivered on serial bus. 
+DEBUG (1): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (2): packet sent: {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (1): Child timer fired
+DEBUG (1): DATA READ: {
+	kinematic_status=1
+	position=(x=60817, y=60379)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=1
+	position=(x=60817, y=60379)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(60817, 60379)
+	kinematic status=WALKING
+}.
+DEBUG (1): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(60817, 60379)
+	kinematic status=WALKING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (1): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+Turning mote 3 on.
+DEBUG (3): Application booted with key gEI5w1YtC5DDEfGT1tNk.
+DEBUG (4): packet sent: {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (3): starting MilliTimer.
+DEBUG (3): Serial bus active. 
+DEBUG (3): Packet received (mode=BROADCASTING_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (3): PAIRING WITH: 4
+DEBUG (3): packet sent: {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIREND
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (3): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): Packet received (mode=BROADCASTING_STATE): {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIREND
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Received Pairing Confirmation from other side
+DEBUG (4): PAIREND received, count: 1
+DEBUG (3): Packet sent successfully. 
+DEBUG (3): Ack for PAIREND send received, count: 1
+DEBUG (3): packet sent: {
+	snd=3->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (3): radio locked.
+DEBUG (4): Packet received (mode=BROADCASTING_STATE): {
+	snd=3->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): PAIRING WITH: 3
+DEBUG (4): packet sent: {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIREND
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=3->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=3->rcv=65535
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIRING
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (3): Packet sent successfully. 
+DEBUG (3): Confirmation for PAIREND resent, Ack was not received
+DEBUG (3): packet sent: {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIREND
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (3): radio locked.
+DEBUG (3): Packet received (mode=PAIRING_STATE): {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIREND
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (3): Received Pairing Confirmation from other side
+DEBUG (3): PAIREND received, count: 2
+DEBUG (3): Ending Pairing phase, going into Operation mode
+DEBUG (4): Packet sent successfully. 
+DEBUG (4): Ack for PAIREND send received, count: 2
+DEBUG (4): Ending Pairing phase, going into Operation mode
+DEBUG (4): Packet received (mode=OPERATION_STATE): {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=PAIREND
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Received Pairing Confirmation from other side
+DEBUG (4): PAIREND received, count: 3
+DEBUG (4): Ending Pairing phase, going into Operation mode
+DEBUG (3): Packet sent successfully. 
+DEBUG (2): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (2): packet sent: {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet sent successfully. 
+DEBUG (1): Child timer fired
+DEBUG (1): DATA READ: {
+	kinematic_status=3
+	position=(x=53273, y=10903)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=3
+	position=(x=53273, y=10903)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(53273, 10903)
+	kinematic status=FALLING
+}.
+DEBUG (1): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(53273, 10903)
+	kinematic status=FALLING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (2): ALERT. FALLING status detected. Baby is in position (x=53273, y=10903)
+DEBUG (2): serial packet sent: {
+	type=1
+	last_pos=(x=53273, y=10903)
+}
+DEBUG (2): Message successfully delivered on serial bus. 
+DEBUG (1): Packet sent successfully. 
+DEBUG (3): Child timer fired
+DEBUG (3): DATA READ: {
+	kinematic_status=0
+	position=(x=60356, y=45927)
+}
+DEBUG (3): Data received from sensor: {
+	kinetic_status=0
+	position=(x=60356, y=45927)
+}
+DEBUG (3): packet sent: {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(60356, 45927)
+	kinematic status=STANDING
+}.
+DEBUG (3): radio locked.
+DEBUG (4): Packet received (mode=OPERATION_STATE): {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(60356, 45927)
+	kinematic status=STANDING
+}.
+DEBUG (4): Received Info from Child
+DEBUG (3): Packet sent successfully. 
+DEBUG (4): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (4): packet sent: {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (3): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (2): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (2): packet sent: {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet sent successfully. 
+DEBUG (1): Child timer fired
+DEBUG (1): DATA READ: {
+	kinematic_status=3
+	position=(x=43114, y=115)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=3
+	position=(x=43114, y=115)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(43114, 115)
+	kinematic status=FALLING
+}.
+DEBUG (1): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(43114, 115)
+	kinematic status=FALLING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (2): ALERT. FALLING status detected. Baby is in position (x=43114, y=115)
+DEBUG (2): serial packet sent: {
+	type=1
+	last_pos=(x=43114, y=115)
+}
+DEBUG (2): Message successfully delivered on serial bus. 
+DEBUG (1): Packet sent successfully. 
+DEBUG (3): Child timer fired
+DEBUG (3): DATA READ: {
+	kinematic_status=1
+	position=(x=56842, y=27424)
+}
+DEBUG (3): Data received from sensor: {
+	kinetic_status=1
+	position=(x=56842, y=27424)
+}
+DEBUG (3): packet sent: {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(56842, 27424)
+	kinematic status=WALKING
+}.
+DEBUG (3): radio locked.
+DEBUG (4): Packet received (mode=OPERATION_STATE): {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(56842, 27424)
+	kinematic status=WALKING
+}.
+DEBUG (4): Received Info from Child
+DEBUG (3): Packet sent successfully. 
+DEBUG (4): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (4): packet sent: {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (3): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (2): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (2): packet sent: {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (1): Child timer fired
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet sent successfully. 
+DEBUG (1): DATA READ: {
+	kinematic_status=1
+	position=(x=51464, y=19312)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=1
+	position=(x=51464, y=19312)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(51464, 19312)
+	kinematic status=WALKING
+}.
+DEBUG (1): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(51464, 19312)
+	kinematic status=WALKING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (1): Packet sent successfully. 
+DEBUG (3): Child timer fired
+DEBUG (3): DATA READ: {
+	kinematic_status=2
+	position=(x=10234, y=48398)
+}
+DEBUG (3): Data received from sensor: {
+	kinetic_status=2
+	position=(x=10234, y=48398)
+}
+DEBUG (3): packet sent: {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(10234, 48398)
+	kinematic status=RUNNING
+}.
+DEBUG (3): radio locked.
+DEBUG (3): Packet sent successfully. 
+DEBUG (4): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (4): packet sent: {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (3): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (1): Child timer fired
+DEBUG (1): DATA READ: {
+	kinematic_status=2
+	position=(x=14148, y=26424)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=2
+	position=(x=14148, y=26424)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(14148, 26424)
+	kinematic status=RUNNING
+}.
+DEBUG (1): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(14148, 26424)
+	kinematic status=RUNNING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (1): Packet sent successfully. 
+DEBUG (2): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (2): packet sent: {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet sent successfully. 
+DEBUG (3): Child timer fired
+DEBUG (3): DATA READ: {
+	kinematic_status=2
+	position=(x=25185, y=61782)
+}
+DEBUG (3): Data received from sensor: {
+	kinetic_status=2
+	position=(x=25185, y=61782)
+}
+DEBUG (3): packet sent: {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(25185, 61782)
+	kinematic status=RUNNING
+}.
+DEBUG (3): radio locked.
+DEBUG (4): Packet received (mode=OPERATION_STATE): {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(25185, 61782)
+	kinematic status=RUNNING
+}.
+DEBUG (4): Received Info from Child
+DEBUG (3): Packet sent successfully. 
+DEBUG (1): Child timer fired
+DEBUG (1): DATA READ: {
+	kinematic_status=2
+	position=(x=56501, y=9422)
+}
+DEBUG (1): Data received from sensor: {
+	kinetic_status=2
+	position=(x=56501, y=9422)
+}
+DEBUG (1): packet sent: {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(56501, 9422)
+	kinematic status=RUNNING
+}.
+DEBUG (1): radio locked.
+DEBUG (2): Packet received (mode=OPERATION_STATE): {
+	snd=1->rcv=2
+	key=j2GV2SEI81x2CHxYNWSf
+	type=INFO
+	pos=(56501, 9422)
+	kinematic status=RUNNING
+}.
+DEBUG (2): Received Info from Child
+DEBUG (1): Packet sent successfully. 
+DEBUG (4): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (4): packet sent: {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): radio locked.
+DEBUG (3): Packet received (mode=OPERATION_STATE): {
+	snd=4->rcv=3
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (4): Packet sent successfully. 
+DEBUG (3): Child timer fired
+DEBUG (3): DATA READ: {
+	kinematic_status=0
+	position=(x=28552, y=21196)
+}
+DEBUG (3): Data received from sensor: {
+	kinetic_status=0
+	position=(x=28552, y=21196)
+}
+DEBUG (3): packet sent: {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(28552, 21196)
+	kinematic status=STANDING
+}.
+DEBUG (3): radio locked.
+DEBUG (4): Packet received (mode=OPERATION_STATE): {
+	snd=3->rcv=4
+	key=gEI5w1YtC5DDEfGT1tNk
+	type=INFO
+	pos=(28552, 21196)
+	kinematic status=STANDING
+}.
+DEBUG (4): Received Info from Child
+DEBUG (3): Packet sent successfully. 
+DEBUG (2): PARENT keepAlive timer fired, sending KEEP_ALIVE packet.
+DEBUG (2): packet sent: {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): radio locked.
+DEBUG (1): Packet received (mode=OPERATION_STATE): {
+	snd=2->rcv=1
+	key=j2GV2SEI81x2CHxYNWSf
+	type=KEEPALIVE
+	pos=(0, 0)
+	kinematic status=STANDING
+}.
+DEBUG (2): Packet sent successfully. 
+
+
+
+Simulation finished!
