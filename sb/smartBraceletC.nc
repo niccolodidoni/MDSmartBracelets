@@ -134,7 +134,7 @@ module smartBraceletC {
   	}
 
   	event void SplitControl.stopDone(error_t err){
-    	SplitControl.start();
+    	call SplitControl.start();
   	}
 
 
@@ -150,7 +150,7 @@ module smartBraceletC {
   	}
 
   	event void SerialSC.stopDone(error_t err) {
-        SerialSC.start();
+        call SerialSC.start();
     }
 
   	char* kinematic_string(uint8_t kinematic){
@@ -190,6 +190,11 @@ module smartBraceletC {
 
 
   	//***************** MilliTimer interface ********************//
+  	void reset() {
+        call SplitControl.stop();
+        call SerialSC.stop();
+    }
+    
   	event void MilliTimer.fired() {
         send_packet(AM_BROADCAST_ADDR, PAIRING, 0, 0, 0);
   	}
@@ -278,11 +283,6 @@ module smartBraceletC {
 
   	}
 
-    void reset() {
-        SplitControl.stop();
-        SerialSC.stop();
-    }
-
   	void handle_info(my_msg_t* received){
   		x = received->x;
   		y = received->y;
@@ -306,8 +306,8 @@ module smartBraceletC {
 
     void handle_rcv_op_state(my_msg_t* msg, message_t* buf) {
         if (role == CHILD) {
-            if (msg->type == KEEP_ALIVE) {
-                KeepAliveTimer.startOneShot(KEEP_ALIVE_TIME);
+            if (msg->msg_type == KEEP_ALIVE) {
+                call KeepAliveTimer.startOneShot(KEEP_ALIVE_TIME);
             }
         }
 
