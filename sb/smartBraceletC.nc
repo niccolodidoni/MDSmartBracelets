@@ -203,6 +203,7 @@ module smartBraceletC {
   	event void Milli60Timer.fired() {
 		dbg("alert", "MISSING ALERT! LAST KNOWN POSITION: x=%u,y=%u,kinematic_status=%s\n", x,y,kinematic_string(kinematic_status));
 		send_serial_packet(2, x, y);
+		mode = PAIRING
   	}
 
 
@@ -282,7 +283,7 @@ module smartBraceletC {
   		    "Packet received: {\n\tsnd=%u->rcv=%u\n\tkey=%s\n\ttype=%u\n\tpos=(%u, %u)\n\tkinematic status=%s\n}.\n",
   			call ReceivePacket.source(buf), call ReceivePacket.destination(buf), msg->key, msg->msg_type, msg->x, msg->y, kinematic_string(msg->kinematic_status));
 
-  		if ( msg->msg_type == PAIRING) {
+  		if ( msg->msg_type == PAIRING ) {
   			handle_pairing(msg, buf, TRUE);
   		} else if ( msg->msg_type == PAIREND ) {
   			dbg("control", "Received Pairing Confirmation from other side\n");
