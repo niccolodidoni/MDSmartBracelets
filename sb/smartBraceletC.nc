@@ -231,11 +231,11 @@ module smartBraceletC {
   	event void Milli60Timer.fired() {
 		dbg("alert", "MISSING ALERT! LAST KNOWN POSITION: x=%u,y=%u,kinematic_status=%s\n", x,y,kinematic_string(kinematic_status));
 		send_serial_packet(2, x, y);
-<<<<<<< HEAD
-		mode = PAIRING
-=======
+
+		mode = PAIRING;
+
         reset();
->>>>>>> fa2fdaca062ce5db0d3777616e584b254ffdf9a7
+
   	}
 
     event void KeepAliveTimer.fired() {
@@ -362,10 +362,9 @@ module smartBraceletC {
   		my_msg_t* msg = (my_msg_t*) payload;
   		
 
-  		dbg("radio",
-<<<<<<< HEAD
-  		    "Packet received: {\n\tsnd=%u->rcv=%u\n\tkey=%s\n\ttype=%u\n\tpos=(%u, %u)\n\tkinematic status=%s\n}.\n",
-  			call ReceivePacket.source(buf), call ReceivePacket.destination(buf), msg->key, msg->msg_type, msg->x, msg->y, kinematic_string(msg->kinematic_status));
+  		//dbg("radio",
+  		//    "Packet received: {\n\tsnd=%u->rcv=%u\n\tkey=%s\n\ttype=%u\n\tpos=(%u, %u)\n\tkinematic status=%s\n}.\n",
+  		//	call ReceivePacket.source(buf), call ReceivePacket.destination(buf), msg->key, msg->msg_type, msg->x, msg->y, kinematic_string(msg->kinematic_status));
 
   		if ( msg->msg_type == PAIRING ) {
   			handle_pairing(msg, buf, TRUE);
@@ -380,7 +379,7 @@ module smartBraceletC {
   			handle_info(msg);
   			call Milli60Timer.startOneShot(60000u);
   		}
-=======
+		dbg("radio",
   		    "Packet received (mode=%s): {\n\tsnd=%u->rcv=%u\n\tkey=%s\n\ttype=%s\n\tpos=(%u, %u)\n\tkinematic status=%s\n}.\n", mode_string(mode), 
   			call ReceivePacket.source(buf), call ReceivePacket.destination(buf), msg->key, msg_type_string(msg->msg_type), msg->x, msg->y, kinematic_string(msg->kinematic_status));
 		
@@ -389,7 +388,7 @@ module smartBraceletC {
         if (msg->msg_type == PAIREND) handle_rcv_pairend(msg, buf);
         
         if (msg->msg_type == INFO) handle_rcv_operational(msg, buf); 
->>>>>>> fa2fdaca062ce5db0d3777616e584b254ffdf9a7
+
 
 		return buf;
   	}
