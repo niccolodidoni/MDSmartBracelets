@@ -34,8 +34,6 @@ module smartBraceletC {
     interface Timer<TMilli> as KeepAliveTimer;
 
 	// interface used to perform sensor reading
-	interface Read<pos_t> as PositionRead;
-    interface Read<kinematic_status_t> as KineticRead;
     interface Read<sensor_data_t> as SensorRead;
   }
 
@@ -394,14 +392,6 @@ module smartBraceletC {
   	}
 
     //************************* Read interface **********************//
-    event void KineticRead.readDone(error_t result, kinematic_status_t data) {
-        dbg("app_kin_sensor", "KINEMATIC STATUS: %d\n", data);
-    }
-
-    event void PositionRead.readDone(error_t result, pos_t data) {
-        dbg("app_kin_sensor", "POSITION: (x=%u, y=%u)\n", data.x, data.y);
-    }
-
     event void SensorRead.readDone(error_t result, sensor_data_t data) {
     	if (role != CHILD || mode != OPERATION_STATE) return;
 

@@ -17,14 +17,6 @@ implementation {
   components ActiveMessageC;
   components SerialActiveMessageC as SerialAM;
 
-  // Sensor used to read the position of the bracelet.
-  // INTERFACES: Read
-  components new PositionSensorC();
-
-  // Sensor used to read the kinetic status of the bracelet.
-  // INTERFACES: Read
-  components new KineticSensorC();
-
   // Sensor used to read the kinematic status and the position of the bracelet.
   components new SensorC();
 
@@ -58,7 +50,5 @@ implementation {
   App.KeepAliveTimer -> TimerKeepAliveC;
 
   // Sensor read
-  App.PositionRead -> PositionSensorC;
-  App.KineticRead -> KineticSensorC;
   App.SensorRead -> SensorC;
 }
